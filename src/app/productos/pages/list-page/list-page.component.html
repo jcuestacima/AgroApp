@@ -1,0 +1,15 @@
+<h1 style="margin-top: 15px; "><strong style="font-size: xx-large;">Todos los productos</strong></h1>
+
+<mat-divider></mat-divider>
+<div>
+  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" routerLink="/productos/buscarProducto" routerLinkActive="router-link-active" >
+    Quiero buscar un producto
+  </button>
+</div>
+<div class="grid bm-8 pt-2">
+  <div *ngFor="let producto of productos" class="col-12 sm:col-4 md:col-3 xl: col-2">
+
+    <productos-producto-card [producto]="producto"></productos-producto-card>
+
+  </div>
+</div>

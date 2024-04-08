@@ -1,0 +1,118 @@
+<h1 style="margin-left: 25%;">Producto</h1>
+
+
+<mat-divider class="mb-2"></mat-divider>
+
+<div class="grid" style="margin-left: 25%;">
+  <div class="col-12  sm:col-8">
+    <mat-card>
+      <mat-card-content>
+        <form class="grid" [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Nombre del producto</mat-label>
+            <input
+              matInput
+              type="text"
+              required
+              formControlName="nombre"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Lugar de origen</mat-label>
+            <input
+              matInput
+              type="text"
+              required
+              formControlName="origen"
+            />
+          </mat-form-field>
+
+          <div>
+
+            <mat-radio-group>
+              <strong>Quiero añadir una: </strong>
+              <mat-radio-button class="primary" value="FR"><span style="color: black" class="text-lg mb-4">Fruta</span></mat-radio-button>
+              <mat-radio-button class="primary" value="HO"><span style="color: black" class="text-lg mb-4">Hortaliza/Verdura</span></mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Precio por KG de producto</mat-label>
+            <input
+              matInput
+              type="number"
+              required
+              formControlName="precio"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Peso unitario del producto (GRAMOS)</mat-label>
+            <input
+              matInput
+              type="number"
+              required
+              formControlName="pesoAproximadoUnidad"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="col-12">
+            <div>
+              <mat-toolbar>
+                <mat-label>Seleccione una foto de su producto</mat-label>
+                <input matInput required/>
+
+
+              </mat-toolbar>
+
+              <input
+                  type="file"
+                  id="fileInput"
+                  name="fileInput"
+                  accept="image/*" multiple
+                  (change)="selectFiles($event)"
+                  formControlName="alt_img"
+               />
+            </div>
+          </mat-form-field>
+
+
+          <div>
+            <strong>Previsualización de la foto:</strong>
+            <hr>
+            <img style="margin-left: 45%;" height="300px" width="300px" *ngFor='let preview of previews' [src]="preview" class="preview">
+          </div>
+
+
+        </form>
+
+        <div class="flex justify-content-between">
+          <button
+            mat-flat-button
+            color="warn"
+          >
+            Borrar
+          </button>
+
+          <button
+            mat-flat-button
+            color="primary"
+            (click)="onSubmit()"
+          >
+            <mat-icon>save</mat-icon>
+            Guardar
+          </button>
+        </div>
+
+      </mat-card-content>
+
+
+
+    </mat-card>
+  </div>
+
+  <div class="col-12  sm:col-6"></div>
+</div>

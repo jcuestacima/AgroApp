@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{producto.nombre}}</mat-card-title>
+    <mat-card-subtitle>{{producto.origen}}</mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-divider></mat-divider>
+
+  <img mat-card-image [src]="producto | productoImage" [alt]="producto.nombre">
+
+  <mat-divider></mat-divider>
+
+  <mat-card-content class="mt-2">
+    <h4><strong>Peso unitario: </strong>{{producto.pesoAproximadoUnidad}}</h4>
+    <p class="pb-2"><strong>Productor: </strong>
+      <a href="">{{producto.idProductor}}</a>
+      <span class="pl-5"><strong>Precio: </strong>
+      {{producto.precio}} €/Kg</span>
+    </p>
+
+
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions class="pt-2">
+    <button mat-button mat-raised color="primary" class="pr-5">
+      <mat-icon>add</mat-icon>
+      al carrito
+    </button>
+    <mat-label class="pr-2">Kg </mat-label>
+      <input matInput #number maxlength="1" placeholder="1" value="1" size="5px">
+  </mat-card-actions>
+
+</mat-card>

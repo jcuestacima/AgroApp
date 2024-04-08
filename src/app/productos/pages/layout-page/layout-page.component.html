@@ -1,0 +1,59 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+    <mat-toolbar>
+      <span>Menú</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+    </mat-toolbar>
+
+    <mat-nav-list >
+        <mat-list-item *ngFor="let item of sidebarItems"  [routerLink]="item.url" (click)='sidenav.toggle()'>
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        {{item.label}}
+        </mat-list-item>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+  <mat-toolbar color="accent">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+
+    <span class="toolbar-title">Agro+</span>
+
+    <span class="spacer"></span>
+
+    <span class="toolbar-subtitle">Del campo, a la mesa</span>
+
+    <span class="spacer"></span>
+
+    <button mat-button routerLink="carritoCompra" routerLinkActive="router-link-active"  >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <button mat-button>
+      Cerrar sesión
+    </button>
+
+    <button mat-button routerLink="auth/login" routerLinkActive="router-link-active">
+      Iniciar sesión
+    </button>
+
+  </mat-toolbar>
+
+
+
+  <div class="container p-2">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</mat-sidenav-container>

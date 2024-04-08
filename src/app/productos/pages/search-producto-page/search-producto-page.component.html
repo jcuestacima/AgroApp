@@ -1,0 +1,45 @@
+
+<div class="flex flex-column">
+  <h1 style="margin-top: 15px;"><strong style="font-size: xx-large;">¿Qué producto buscas?</strong></h1>
+
+  <mat-form-field class="m-5">
+    <mat-label>Buscar producto</mat-label>
+    <input type="text"
+    matInput class="form-control"
+    [formControl]="searchInput"
+    (input)="searchProducto()"
+    [matAutocomplete]="auto"
+    >
+
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectedOption($event)">
+      <mat-option *ngFor="let producto of productos" [value]="producto">
+          {{producto.nombre}}
+      </mat-option>
+
+      <mat-option
+      *ngIf="productos.length === 0 && searchInput.value && searchInput.value.length>0">
+        No hay resultados para su búsqueda: <strong>{{searchInput.value}}</strong>
+      </mat-option>
+
+    </mat-autocomplete>
+
+  </mat-form-field>
+
+  <div>
+    <mat-radio-group style="margin-left: 3%;">
+      <p style="display: inline; font-size: large;"><strong>Estoy buscando... </strong></p>
+      <mat-radio-button (change)="roleSelected(1)" class="primary" value="1"><span style="color: black" class="text-lg mb-4">Frutas</span></mat-radio-button>
+      <mat-radio-button (change)="roleSelected(2)" class="primary" value="2"><span style="color: black" class="text-lg mb-4">Hortalizas/Verduras</span></mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div class="grid bm-8 pt-2">
+
+    <div *ngFor="let producto of productos" class="col-12 sm:col-4 md:col-3 xl: col-2">
+
+      <productos-producto-card [producto]="producto"></productos-producto-card>
+
+    </div>
+  </div>
+
+</div>

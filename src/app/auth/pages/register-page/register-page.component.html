@@ -1,0 +1,53 @@
+<div class="flex flex-column">
+  <span class="text-lg mb-4"><h1>Registrarme</h1></span>
+
+  <mat-form-field>
+    <mat-label>Usuario</mat-label>
+    <input type="text" matInput placeholder="Escriba su nombre de usuario" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Correo electrónico</mat-label>
+    <input type="email" matInput placeholder="Escriba su correo electrónico" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Contraseña</mat-label>
+    <input type="password" matInput placeholder="Escriba la contraseña" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Confirmar contraseña</mat-label>
+    <input type="password" matInput placeholder="Repita la contraseña" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Dirección</mat-label>
+    <input type="text" matInput placeholder="Escriba su dirección" required>
+  </mat-form-field>
+
+  <div>
+    <mat-radio-group required>
+      <mat-radio-button (change)="roleSelected(1)" id="agricultor" class="primary" value="1"><span style="color: black" class="text-lg mb-4">Agricultor/Ganadero</span></mat-radio-button>
+      <mat-radio-button (change)="roleSelected(0)" class="primary" value="2"><span style="color: black" class="text-lg mb-4">Consumidor/Cliente</span></mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <mat-form-field *ngIf="showBankAccountInput">
+    <mat-label>Número de cuenta bancaria</mat-label>
+    <input type="text" matInput placeholder="Escriba su número de cuenta bancaria">
+  </mat-form-field>
+
+  <mat-form-field *ngIf="showBankAccountInput">
+    <mat-label>Confirmar cuenta bancara</mat-label>
+    <input type="text" matInput placeholder="Reescriba su número de cuenta bancaria">
+  </mat-form-field>
+
+  <button mat-button mat-flat-button color="accent">
+    <mat-icon>login</mat-icon> Registrarme
+  </button>
+
+  <div class="flex justify-content-end mt-5">
+    <a href="/auth/login"> ¿Ya tienes cuenta?</a>
+  </div>
+</div>
