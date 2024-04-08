@@ -7,11 +7,11 @@ export interface Producto {
   precio:               number;
   origen:               string;
   pesoAproximadoUnidad: string;
-  esFRoHO?: esFRoHO;
+  esFRoHO?: EsFRoHO;
   alt_img?: string;
 }
 
-export enum esFRoHO{
+export enum EsFRoHO{
   FR = "FR",
   HO = "HO",
 }

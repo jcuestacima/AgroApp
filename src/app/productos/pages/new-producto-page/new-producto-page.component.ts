@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { FileUploadService } from '../../services/file-upload/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
+import { EsFRoHO, Producto} from '../../interfaces/productos.interface';
+import { ProductoService } from '../../services/productos.service';
+import { ListPageComponent } from '../list-page/list-page.component';
 
 @Component({
   selector: 'app-new-producto-page',
@@ -12,6 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class NewProductoPageComponent implements OnInit{
   selectedFiles?: FileList;
   selectedFileNames: string[] = [];
+
 
   message: string[] = [];
 
@@ -26,6 +30,7 @@ export class NewProductoPageComponent implements OnInit{
     precio:               new FormControl(0, {nonNullable:true}),
     origen:               new FormControl('', {nonNullable:true}),
     pesoAproximadoUnidad: new FormControl(0, {nonNullable:true}),
+    esFRoHO:              new FormControl<EsFRoHO>(EsFRoHO.FR, {nonNullable: true}),
     alt_img: new FormControl('', {nonNullable:true}),
 
 
@@ -34,15 +39,46 @@ export class NewProductoPageComponent implements OnInit{
 
 
 
-  constructor(private uploadService: FileUploadService) {}
+  constructor(private uploadService: FileUploadService, private productosService: ProductoService) {}
 
   ngOnInit(): void {
     this.imageInfos = this.uploadService.getFiles();
   }
 
-  onSubmit(){
-    console.log({formIsValid: this.productoForm.valid, value : this.productoForm.value});
+  get currentProducto():Producto{
+    const producto = this.productoForm.value as unknown as Producto;
+    return producto;
   }
+  onSubmit(){
+    if (this.productoForm.invalid) {
+      return
+    }
+
+    this.productosService.addProducto(this.currentProducto).subscribe(producto =>{
+      //todo mostrar snackbar y navegar a otra ventana
+    })
+
+
+  }
+  //HAY QUE IMPLEMENTAR EL METODO QUE OBTIENE TODOS LOS ID Y LOS DIFERENCIA ENTRE FR Y HO
+  // generateProductoId() {
+  //   const productos = this.listaProductos.productos;
+  //   const todoIdFr: string[] = [];
+  //   const todoIdHo: string[] = [];
+
+  //   productos.forEach(producto => {
+  //     if (producto.id.startsWith("FR") && producto.id.length === 5) {
+  //       todoIdFr.push(producto.id);
+  //     }
+
+  //     if (producto.id.startsWith("HO") && producto.id.length === 5) {
+  //       todoIdHo.push(producto.id);
+  //     }
+  //   });
+
+  //   console.log("IDs que empiezan por FR y tienen 5 caracteres:", todoIdFr);
+  //   console.log("IDs que empiezan por HO y tienen 5 caracteres:", todoIdHo);
+  // }
 
 
   selectFiles(event: any): void {
