@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FileUploadService } from '../../services/file-upload/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
 import { EsFRoHO, Producto } from '../../interfaces/productos.interface';
 import { ProductoService } from '../../services/productos.service';
 import { ListPageComponent } from '../list-page/list-page.component';
 import { JsonPipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FileUploadService } from '../../../shared/file-upload/file-upload.service';
 
 @Component({
   selector: 'app-new-producto-page',
@@ -42,7 +43,10 @@ export class NewProductoPageComponent implements OnInit{
 
 
 
-  constructor(private uploadService: FileUploadService, private productosService: ProductoService) {}
+  constructor(private uploadService: FileUploadService,
+    private productosService: ProductoService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.imageInfos = this.uploadService.getFiles();
@@ -69,9 +73,15 @@ export class NewProductoPageComponent implements OnInit{
     this.productoForm.value.id = this.generateProductoId();
     this.productosService.addProducto(this.currentProducto).subscribe(producto =>{
       //todo mostrar snackbar y navegar a otra ventana
+      this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
+
     })
 
 
+  }
+
+  showSnackBar(message: string): void{
+    this.snackBar.open(message, 'Cerrar', {duration: 3000})
   }
 
   generateProductoId(): string {

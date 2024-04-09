@@ -1,64 +1,201 @@
 {
-  "users": [
+  "usuarios": [
     {
-      "id": 1,
+      "id": "P001",
       "usuario": "John Doe",
-      "email": "john.due@gmail.com"
+      "email": "john.due@gmail.com",
+      "contrasena": "contrasena",
+      "direccion": "paseo del cisne",
+      "esAgricultor": true,
+      "cuentaBanco": 798653217486
+    },
+    {
+      "id": "P002",
+      "usuario": "elorri",
+      "email": "john.due@gmail.com",
+      "contrasena": "contrasena",
+      "direccion": "paseo del cisne",
+      "esAgricultor": true,
+      "cuentaBanco": 798653217486
+    },
+    {
+      "id": "P003",
+      "usuario": "javi",
+      "email": "john.due@gmail.com",
+      "contrasena": "1",
+      "direccion": "paseo del cisne",
+      "esAgricultor": true,
+      "cuentaBanco": 798653217486
     }
   ],
-
-
   "productos": [
-    {"nombre": "Manzana", "id": "FR001", "idProductor": "P001", "precio": 0.5, "origen": "Cataluña", "pesoAproximadoUnidad": "150 g"},
-    {"nombre": "Plátano", "id": "FR002", "idProductor": "P002", "precio": 0.3, "origen": "Canarias", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Naranja", "id": "FR003", "idProductor": "P003", "precio": 0.4, "origen": "Valencia", "pesoAproximadoUnidad": "180 g"},
-    {"nombre": "Uva", "id": "FR004", "idProductor": "P004", "precio": 0.6, "origen": "La Rioja", "pesoAproximadoUnidad": "120 g"},
-    {"nombre": "Peras", "id": "FR005", "idProductor": "P005", "precio": 0.45, "origen": "Aragón", "pesoAproximadoUnidad": "160 g"},
-    {"nombre": "Fresa", "id": "FR006", "idProductor": "P006", "precio": 0.7, "origen": "Huelva", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Piña", "id": "FR007", "idProductor": "P007", "precio": 1.2, "origen": "Canarias", "pesoAproximadoUnidad": "800 g"},
-    {"nombre": "Kiwi", "id": "FR008", "idProductor": "P008", "precio": 0.8, "origen": "Galicia", "pesoAproximadoUnidad": "90 g"},
-    {"nombre": "Sandía", "id": "FR009", "idProductor": "P009", "precio": 1.5, "origen": "Andalucía", "pesoAproximadoUnidad": "4000 g"},
-    {"nombre": "Melón", "id": "FR010", "idProductor": "P010", "precio": 1.2, "origen": "Extremadura", "pesoAproximadoUnidad": "1500 g"},
-    {"nombre": "Mango", "id": "FR011", "idProductor": "P011", "precio": 1.2, "origen": "Canarias", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Limón", "id": "FR012", "idProductor": "P012", "precio": 0.4, "origen": "Murcia", "pesoAproximadoUnidad": "80 g"},
-    {"nombre": "Cereza", "id": "FR013", "idProductor": "P013", "precio": 0.9, "origen": "Cáceres", "pesoAproximadoUnidad": "50 g"},
-    {"nombre": "Papaya", "id": "FR014", "idProductor": "P014", "precio": 1.8, "origen": "Canarias", "pesoAproximadoUnidad": "900 g"},
-    {"nombre": "Coco", "id": "FR015", "idProductor": "P015", "precio": 1.5, "origen": "Canarias", "pesoAproximadoUnidad": "1000 g"},
-    {"nombre": "Granada", "id": "FR016", "idProductor": "P016", "precio": 1.1, "origen": "Andalucía", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Dátil", "id": "FR017", "idProductor": "P017", "precio": 0.8, "origen": "Almería", "pesoAproximadoUnidad": "10 g"},
-    {"nombre": "Aguacate", "id": "FR018", "idProductor": "P018", "precio": 1.2, "origen": "Málaga", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Higo", "id": "FR019", "idProductor": "P019", "precio": 0.7, "origen": "Murcia", "pesoAproximadoUnidad": "50 g"},
-    {"nombre": "Ciruela", "id": "FR020", "idProductor": "P020", "precio": 0.9, "origen": "Zaragoza", "pesoAproximadoUnidad": "70 g"},
-    {"nombre": "Pomelo", "id": "FR021", "idProductor": "P021", "precio": 0.5, "origen": "Valencia", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Mandarina", "id": "FR022", "idProductor": "P022", "precio": 0.6, "origen": "Murcia", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Clementina", "id": "FR023", "idProductor": "P023", "precio": 0.5, "origen": "Valencia", "pesoAproximadoUnidad": "80 g"},
-    {"nombre": "Moras", "id": "FR024", "idProductor": "P024", "precio": 1.0, "origen": "Huesca", "pesoAproximadoUnidad": "50 g"},
-    {"nombre": "Frambuesa", "id": "FR025", "idProductor": "P025", "precio": 1.2, "origen": "Cantabria", "pesoAproximadoUnidad": "30 g"},
-    {"nombre": "Zanahoria", "id": "HO001", "idProductor": "P026", "precio": 0.3, "origen": "Segovia", "pesoAproximadoUnidad": "120 g"},
-    {"nombre": "Espinaca", "id": "HO002", "idProductor": "P027", "precio": 0.4, "origen": "Cádiz", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Brócoli", "id": "HO003", "idProductor": "P028", "precio": 0.6, "origen": "Cantabria", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Tomate", "id": "HO004", "idProductor": "P029", "precio": 0.4, "origen": "Murcia", "pesoAproximadoUnidad": "150 g"},
-    {"nombre": "Pimiento", "id": "HO005", "idProductor": "P030", "precio": 0.5, "origen": "Almería", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Lechuga", "id": "HO006", "idProductor": "P031", "precio": 0.3, "origen": "Badajoz", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Cebolla", "id": "HO007", "idProductor": "P032", "precio": 0.4, "origen": "La Rioja", "pesoAproximadoUnidad": "80 g"},
-    {"nombre": "Pepino", "id": "HO008", "idProductor": "P033", "precio": 0.3, "origen": "Albacete", "pesoAproximadoUnidad": "150 g"},
-    {"nombre": "Calabaza", "id": "HO009", "idProductor": "P034", "precio": 0.7, "origen": "Jaén", "pesoAproximadoUnidad": "500 g"},
-    {"nombre": "Calabacín", "id": "HO010", "idProductor": "P035", "precio": 0.4, "origen": "Guadalajara", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Ajo", "id": "HO011", "idProductor": "P036", "precio": 0.2, "origen": "Cuenca", "pesoAproximadoUnidad": "30 g"},
-    {"nombre": "Remolacha", "id": "HO012", "idProductor": "P037", "precio": 0.4, "origen": "Córdoba", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Escarola", "id": "HO013", "idProductor": "P038", "precio": 0.3, "origen": "Málaga", "pesoAproximadoUnidad": "150 g"},
-    {"nombre": "Judía verde", "id": "HO014", "idProductor": "P039", "precio": 0.5, "origen": "Ávila", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Puerro", "id": "HO015", "idProductor": "P040", "precio": 0.3, "origen": "Burgos", "pesoAproximadoUnidad": "120 g"},
-    {"nombre": "Coliflor", "id": "HO016", "idProductor": "P041", "precio": 0.6, "origen": "Barcelona", "pesoAproximadoUnidad": "250 g"},
-    {"nombre": "Perejil", "id": "HO017", "idProductor": "P042", "precio": 0.3, "origen": "Granada", "pesoAproximadoUnidad": "30 g"},
-    {"nombre": "Col", "id": "HO018", "idProductor": "P043", "precio": 0.4, "origen": "Huesca", "pesoAproximadoUnidad": "200 g"},
-    {"nombre": "Acelga", "id": "HO019", "idProductor": "P044", "precio": 0.3, "origen": "León", "pesoAproximadoUnidad": "150 g"},
-    {"nombre": "Rábano", "id": "HO020", "idProductor": "P045", "precio": 0.2, "origen": "Madrid", "pesoAproximadoUnidad": "20 g"},
-    {"nombre": "Alcachofa", "id": "HO021", "idProductor": "P046", "precio": 0.8, "origen": "Murcia", "pesoAproximadoUnidad": "300 g"},
-    {"nombre": "Berenjena", "id": "HO022", "idProductor": "P047", "precio": 0.5, "origen": "Navarra", "pesoAproximadoUnidad": "180 g"},
-    {"nombre": "Espárrago", "id": "HO023", "idProductor": "P048", "precio": 0.7, "origen": "Ourense", "pesoAproximadoUnidad": "100 g"},
-    {"nombre": "Guisante", "id": "HO024", "idProductor": "P049", "precio": 0.6, "origen": "Pontevedra", "pesoAproximadoUnidad": "80 g"},
-    {"nombre": "Albahaca", "id": "HO025", "idProductor": "P050", "precio": 0.3, "origen": "Salamanca", "pesoAproximadoUnidad": "20 g"}
+    {
+      "nombre": "Manzana",
+      "id": "FR001",
+      "idProductor": "P001",
+      "precio": 0.5,
+      "origen": "Cataluña",
+      "pesoAproximadoUnidad": "150 g"
+    },
+    {
+      "nombre": "Plátano",
+      "id": "FR002",
+      "idProductor": "P002",
+      "precio": 0.3,
+      "origen": "Canarias",
+      "pesoAproximadoUnidad": "200 g"
+    },
+    {
+      "nombre": "Naranja",
+      "id": "FR003",
+      "idProductor": "P003",
+      "precio": 0.4,
+      "origen": "Valencia",
+      "pesoAproximadoUnidad": "180 g"
+    },
+    {
+      "nombre": "Uva",
+      "id": "FR004",
+      "idProductor": "P004",
+      "precio": 0.6,
+      "origen": "La Rioja",
+      "pesoAproximadoUnidad": "120 g"
+    },
+    {
+      "nombre": "Peras",
+      "id": "FR005",
+      "idProductor": "P005",
+      "precio": 0.45,
+      "origen": "Aragón",
+      "pesoAproximadoUnidad": "160 g"
+    },
+    {
+      "nombre": "Fresa",
+      "id": "FR006",
+      "idProductor": "P006",
+      "precio": 0.7,
+      "origen": "Huelva",
+      "pesoAproximadoUnidad": "100 g"
+    },
+    {
+      "nombre": "Piña",
+      "id": "FR007",
+      "idProductor": "P007",
+      "precio": 1.2,
+      "origen": "Canarias",
+      "pesoAproximadoUnidad": "800 g"
+    },
+    {
+      "nombre": "Kiwi",
+      "id": "FR008",
+      "idProductor": "P008",
+      "precio": 0.8,
+      "origen": "Galicia",
+      "pesoAproximadoUnidad": "90 g"
+    },
+    {
+      "nombre": "Melón",
+      "id": "FR010",
+      "idProductor": "P010",
+      "precio": 1.2,
+      "origen": "Extremadura",
+      "pesoAproximadoUnidad": "1500 g"
+    },
+    {
+      "nombre": "Limón",
+      "id": "FR012",
+      "idProductor": "P012",
+      "precio": 0.4,
+      "origen": "Murcia",
+      "pesoAproximadoUnidad": "80 g"
+    },
+    {
+      "nombre": "Mandarina",
+      "id": "FR022",
+      "idProductor": "P022",
+      "precio": 0.6,
+      "origen": "Murcia",
+      "pesoAproximadoUnidad": "100 g"
+    },
+    {
+      "nombre": "Zanahoria",
+      "id": "HO001",
+      "idProductor": "P026",
+      "precio": 0.3,
+      "origen": "Segovia",
+      "pesoAproximadoUnidad": "120 g"
+    },
+    {
+      "nombre": "Tomate",
+      "id": "HO004",
+      "idProductor": "P029",
+      "precio": 0.4,
+      "origen": "Murcia",
+      "pesoAproximadoUnidad": "150 g"
+    },
+    {
+      "nombre": "Pimiento",
+      "id": "HO005",
+      "idProductor": "P030",
+      "precio": 0.5,
+      "origen": "Almería",
+      "pesoAproximadoUnidad": "100 g"
+    },
+    {
+      "nombre": "Lechuga",
+      "id": "HO006",
+      "idProductor": "P031",
+      "precio": 0.3,
+      "origen": "Badajoz",
+      "pesoAproximadoUnidad": "200 g"
+    },
+    {
+      "nombre": "Pepino",
+      "id": "HO008",
+      "idProductor": "P033",
+      "precio": 0.3,
+      "origen": "Albacete",
+      "pesoAproximadoUnidad": "150 g"
+    },
+    {
+      "nombre": "Calabacín",
+      "id": "HO010",
+      "idProductor": "P035",
+      "precio": 0.4,
+      "origen": "Guadalajara",
+      "pesoAproximadoUnidad": "200 g"
+    },
+    {
+      "nombre": "Escarola",
+      "id": "HO013",
+      "idProductor": "P038",
+      "precio": 0.3,
+      "origen": "Málaga",
+      "pesoAproximadoUnidad": "150 g"
+    },
+    {
+      "nombre": "Berenjena",
+      "id": "HO022",
+      "idProductor": "P047",
+      "precio": 0.5,
+      "origen": "Navarra",
+      "pesoAproximadoUnidad": "180 g"
+    },
+    {
+      "nombre": "Espárrago",
+      "id": "HO023",
+      "idProductor": "P048",
+      "precio": 0.7,
+      "origen": "Navarra",
+      "pesoAproximadoUnidad": "100 g"
+    },
+    {
+      "nombre": "Guisante",
+      "id": "HO024",
+      "idProductor": "P049",
+      "precio": 0.6,
+      "origen": "Pontevedra",
+      "pesoAproximadoUnidad": "80 g"
+    }
   ]
-
 }

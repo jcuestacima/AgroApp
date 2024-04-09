@@ -38,13 +38,12 @@
       <mat-icon>shopping_cart</mat-icon>
     </button>
 
-    <button mat-button>
+    <span>{{usuario?.usuario}}</span>
+
+    <button mat-button (click)="onLogout()">
       Cerrar sesión
     </button>
 
-    <button mat-button routerLink="auth/login" routerLinkActive="router-link-active">
-      Iniciar sesión
-    </button>
 
   </mat-toolbar>
 
