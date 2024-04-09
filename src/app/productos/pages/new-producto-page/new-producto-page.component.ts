@@ -3,9 +3,10 @@ import { Observable } from 'rxjs';
 import { FileUploadService } from '../../services/file-upload/file-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EsFRoHO, Producto} from '../../interfaces/productos.interface';
+import { EsFRoHO, Producto } from '../../interfaces/productos.interface';
 import { ProductoService } from '../../services/productos.service';
 import { ListPageComponent } from '../list-page/list-page.component';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-new-producto-page',
@@ -21,6 +22,8 @@ export class NewProductoPageComponent implements OnInit{
 
   previews: string[] = [];
   imageInfos?: Observable<any>;
+
+  productosInfo: Producto[]=[];
 
   //NO EDITABLE
   public productoForm = new FormGroup({
@@ -43,6 +46,16 @@ export class NewProductoPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.imageInfos = this.uploadService.getFiles();
+    this.productosService.getProductos().subscribe({
+      next: (productos: Producto[]) => {
+        this.productosInfo = productos;
+        // Puedes realizar cualquier acción adicional aquí, si es necesario
+      },
+      error: (error: any) => {
+        console.error('Error al obtener productos:', error);
+      }
+    });
+
   }
 
   get currentProducto():Producto{
@@ -53,32 +66,82 @@ export class NewProductoPageComponent implements OnInit{
     if (this.productoForm.invalid) {
       return
     }
-
+    this.productoForm.value.id = this.generateProductoId();
     this.productosService.addProducto(this.currentProducto).subscribe(producto =>{
       //todo mostrar snackbar y navegar a otra ventana
     })
 
 
   }
-  //HAY QUE IMPLEMENTAR EL METODO QUE OBTIENE TODOS LOS ID Y LOS DIFERENCIA ENTRE FR Y HO
-  // generateProductoId() {
-  //   const productos = this.listaProductos.productos;
-  //   const todoIdFr: string[] = [];
-  //   const todoIdHo: string[] = [];
 
-  //   productos.forEach(producto => {
-  //     if (producto.id.startsWith("FR") && producto.id.length === 5) {
-  //       todoIdFr.push(producto.id);
-  //     }
+  generateProductoId(): string {
+    const todoIdFr: string[] = [];
+    const todoIdHo: string[] = [];
+    var principioDelId: string;
+    var numeroDeId: string="";
+    var idFinal: string;
 
-  //     if (producto.id.startsWith("HO") && producto.id.length === 5) {
-  //       todoIdHo.push(producto.id);
-  //     }
-  //   });
+    this.productosInfo.forEach(producto => {
+      if (producto.id.startsWith("FR") && producto.id.length === 5) {
+        todoIdFr.push(producto.id);
+      }
 
-  //   console.log("IDs que empiezan por FR y tienen 5 caracteres:", todoIdFr);
-  //   console.log("IDs que empiezan por HO y tienen 5 caracteres:", todoIdHo);
-  // }
+      if (producto.id.startsWith("HO") && producto.id.length === 5) {
+        todoIdHo.push(producto.id);
+      }
+    });
+
+      console.log("IDs que empiezan por FR y tienen 5 caracteres:", todoIdFr);
+      console.log("IDs que empiezan por HO y tienen 5 caracteres:", todoIdHo);
+
+      if (this.productoForm.get('esFRoHO') && this.productoForm.get('esFRoHO')!.value === "FR") {
+        // Verificamos si todoIdFr no está vacío antes de acceder al último elemento
+        if (todoIdFr.length > 0) {
+          // Obtenemos el último elemento de todoIdFr
+          const ultimoElemento = todoIdFr[todoIdFr.length - 1];
+          // Extraemos los últimos 3 caracteres
+          const ultimosTresCaracteres = ultimoElemento.substring(ultimoElemento.length - 3);
+          // Convertimos los últimos 3 caracteres a números y sumamos 1
+          const ultimoNumero = parseInt(ultimosTresCaracteres, 10) + 1;
+          // Concatenamos "FR" con el último número obtenido
+          numeroDeId = ultimoNumero.toString().padStart(3, '0');
+        } else {
+          // Si todoIdFr está vacío, establecemos numeroDeId como "001"
+          numeroDeId = "001";
+        }
+        principioDelId = "FR";
+
+        idFinal = principioDelId.concat(numeroDeId);
+        return idFinal;
+      }
+      if (this.productoForm.get('esFRoHO') && this.productoForm.get('esFRoHO')!.value === "HO") {
+
+        console.log("Entra")
+        // Verificamos si todoIdHo no está vacío antes de acceder al último elemento
+        if (todoIdHo.length > 0) {
+          // Obtenemos el último elemento de todoIdHo
+          const ultimoElemento = todoIdHo[todoIdHo.length - 1];
+          // Extraemos los últimos 3 caracteres
+          const ultimosTresCaracteres = ultimoElemento.substring(ultimoElemento.length - 3);
+          // Convertimos los últimos 3 caracteres a números y sumamos 1
+          const ultimoNumero = parseInt(ultimosTresCaracteres, 10) + 1;
+          // Concatenamos "HO" con el último número obtenido
+          numeroDeId = ultimoNumero.toString().padStart(3, '0');
+        } else {
+          // Si todoIdFr está vacío, establecemos numeroDeId como "001"
+          numeroDeId = "001";
+        }
+        principioDelId = "HO";
+
+        idFinal = principioDelId.concat(numeroDeId);
+        return idFinal;
+      }
+
+
+
+
+    return "Error";
+  }
 
 
   selectFiles(event: any): void {

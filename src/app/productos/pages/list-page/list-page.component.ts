@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Producto } from '../../interfaces/productos.interface';
 import { ProductoService } from '../../services/productos.service';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   templateUrl: './list-page.component.html',
   styles: ``
 })
+
+@Injectable()
 export class ListPageComponent implements OnInit{
   public productos: Producto[] = [];
 
