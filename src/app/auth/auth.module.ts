@@ -8,7 +8,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { MaterialModule } from "../material/material.module";
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ProductosModule } from '../productos/productos.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     MatRadioGroup,
     MatRadioButton,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductosModule,
   ]
 })
 export class AuthModule { }

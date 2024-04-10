@@ -14,6 +14,7 @@ import { CarroCompraComponent } from './pages/carroCompraPage/carroCompra.compon
 import { ProductoImagePipe } from './pipes/producto-image.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
+import { ProductorPageComponent } from './pages/productor-page/productor.page';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
     CardComponent,
     CarroCompraComponent,
     ProductoImagePipe,
+    ProductorPageComponent
 
   ],
   imports: [

@@ -1,0 +1,14 @@
+<div>
+  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" routerLink="/productos/listaProductos" routerLinkActive="router-link-active" >
+    Volver a la lista de productos
+  </button>
+  <h1><strong>PRODUCTOR:</strong> {{getIdProductorFromUrl()}}</h1>
+</div>
+
+<div class="grid bm-8 pt-2">
+  <div *ngFor="let producto of productosDelProductor" class="col-12 sm:col-4 md:col-3 xl: col-2">
+
+    <productos-producto-card [producto]="producto"></productos-producto-card>
+
+  </div>
+</div>

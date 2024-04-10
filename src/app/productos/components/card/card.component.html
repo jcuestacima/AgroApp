@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card style="background-color: rgba(206, 241, 173, 0.486);">
   <mat-card-header>
     <mat-card-title>{{producto.nombre}}</mat-card-title>
     <mat-card-subtitle>{{producto.origen}}</mat-card-subtitle>
@@ -13,11 +13,10 @@
 
   <mat-card-content class="mt-2">
     <h4><strong>Peso unitario: </strong>{{producto.pesoAproximadoUnidad}}</h4>
-    <p class="pb-2"><strong>Productor: </strong>
-      <a href="">{{producto.idProductor}}</a>
-      <span class="pl-5"><strong>Precio: </strong>
-      {{producto.precio}} €/Kg</span>
-    </p>
+    <h4><strong>Precio: </strong>{{producto.precio}}</h4>
+    <button style="margin-bottom: 15px;" class="col-12" mat-flat-button color="accent" (click)="irPaginaProductor()">Productor: {{producto.idProductor}}</button>
+
+
 
 
   </mat-card-content>

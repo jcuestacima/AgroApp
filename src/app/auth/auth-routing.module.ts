@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayourPageComponent } from './pages/layour-page/layour-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ProductorPageComponent } from '../productos/pages/productor-page/productor.page';
 
 const routes: Routes = [
 

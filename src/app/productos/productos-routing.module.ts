@@ -8,6 +8,7 @@ import { SearchProductoPageComponent } from './pages/search-producto-page/search
 import { CarroCompraComponent } from './pages/carroCompraPage/carroCompra.component';
 import { RegisterPageComponent } from '../auth/pages/register-page/register-page.component';
 import { LoginPageComponent } from '../auth/pages/login-page/login-page.component';
+import { ProductorPageComponent } from './pages/productor-page/productor.page';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path:'buscarProducto', component: SearchProductoPageComponent},
       {path:'carritoCompra', component: CarroCompraComponent},
       {path:'auth/login', component: LoginPageComponent},
+      {path:'productor/:id', component: ProductorPageComponent},
       {path:'**', redirectTo:'listaProductos'}
     ]
   }
