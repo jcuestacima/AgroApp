@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login-page.component.html',
   styles: ``
 })
-export class LoginPageComponent implements OnInit{
+export class LoginPageComponent{
   usuariosInfo: Usuario[]=[];
   constructor(private authService: AuthService,
     private router: Router,
@@ -29,40 +29,44 @@ export class LoginPageComponent implements OnInit{
     return datosLogin;
   }
 
-  async onLogin() {
+  // async onLogin() {
+  //   const usuario = this.loginForm.get('usuario')?.value;
+  //   const contrasena = this.loginForm.get('contrasena')?.value;
+
+  //   try {
+  //     const usuarioEncontrado = this.usuariosInfo.find(u => u.usuario === usuario && u.contrasena === contrasena);
+  //     if (usuarioEncontrado) {
+  //       // Usuario y contraseña válidos, redirige al usuario a la página principal
+  //       this.router.navigate(['/']);
+  //     } else {
+  //       // Usuario o contraseña incorrectos, muestra un mensaje de error
+  //       alert('Usuario o contraseña incorrectos');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error al buscar usuario:', error);
+  //   }
+
+
+
+  // }
+
+  onLogin(){
     const usuario = this.loginForm.get('usuario')?.value;
     const contrasena = this.loginForm.get('contrasena')?.value;
-
-    try {
-      const usuarioEncontrado = this.usuariosInfo.find(u => u.usuario === usuario && u.contrasena === contrasena);
-      if (usuarioEncontrado) {
-        // Usuario y contraseña válidos, redirige al usuario a la página principal
-        this.router.navigate(['/']);
-      } else {
-        // Usuario o contraseña incorrectos, muestra un mensaje de error
-        alert('Usuario o contraseña incorrectos');
-      }
-    } catch (error) {
-      console.error('Error al buscar usuario:', error);
-    }
-
-
+    this.authService.login(usuario!, contrasena!);
   }
 
-  ngOnInit(){
-    this.authService.getUsuarios().subscribe({
-      next: (usuarios: Usuario[]) => {
-        this.usuariosInfo = usuarios;
-        // Puedes realizar cualquier acción adicional aquí, si es necesario
-      },
-      error: (error: any) => {
-        console.error('Error al obtener usuarios:', error);
-      }
-    });
-  }
+  // ngOnInit(){
+  //   this.authService.getUsuarios().subscribe({
+  //     next: (usuarios: Usuario[]) => {
+  //       this.usuariosInfo = usuarios;
+  //       // Puedes realizar cualquier acción adicional aquí, si es necesario
+  //     },
+  //     error: (error: any) => {
+  //       console.error('Error al obtener usuarios:', error);
+  //     }
+  //   });
+  // }
 
-  private searchUsuario(){
-
-  }
 
 }

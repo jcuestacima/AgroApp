@@ -1,51 +1,55 @@
 <div class="flex flex-column">
+
   <span class="text-lg mb-4"><h1>Registrarme</h1></span>
 
-  <mat-form-field>
+  <form [formGroup]="registerForm">
+
+  <mat-form-field class="col-12">
     <mat-label>Usuario</mat-label>
-    <input type="text" matInput placeholder="Escriba su nombre de usuario" required>
+    <input formControlName="usuario" class="col-12" type="text" matInput placeholder="Escriba su nombre de usuario" required>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="col-12">
     <mat-label>Correo electrónico</mat-label>
-    <input type="email" matInput placeholder="Escriba su correo electrónico" required>
+    <input formControlName="email" class="col-12" type="email" matInput placeholder="Escriba su correo electrónico" required>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="col-12">
     <mat-label>Contraseña</mat-label>
-    <input type="password" matInput placeholder="Escriba la contraseña" required>
+    <input formControlName="contrasena" class="col-12" type="password" matInput placeholder="Escriba la contraseña" required>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="col-12">
     <mat-label>Confirmar contraseña</mat-label>
-    <input type="password" matInput placeholder="Repita la contraseña" required>
+    <input class="col-12" type="password" matInput placeholder="Repita la contraseña" required>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="col-12">
     <mat-label>Dirección</mat-label>
-    <input type="text" matInput placeholder="Escriba su dirección" required>
+    <input formControlName="direccion" class="col-12" type="text" matInput placeholder="Escriba su dirección" required>
   </mat-form-field>
 
-  <div>
-    <mat-radio-group required>
-      <mat-radio-button (change)="roleSelected(1)" id="agricultor" class="primary" value="1"><span style="color: black" class="text-lg mb-4">Agricultor/Ganadero</span></mat-radio-button>
-      <mat-radio-button (change)="roleSelected(0)" class="primary" value="2"><span style="color: black" class="text-lg mb-4">Consumidor/Cliente</span></mat-radio-button>
+  <div class="col-12">
+    <mat-radio-group required formControlName="esAgricultor">
+      <mat-radio-button (change)="roleSelected(true)" class="primary" [value]="true"><span style="color: black" class="text-lg mb-4">Agricultor/Ganadero</span></mat-radio-button>
+      <mat-radio-button (change)="roleSelected(false)" class="primary" [value]="false"><span style="color: black" class="text-lg mb-4">Consumidor/Cliente</span></mat-radio-button>
     </mat-radio-group>
   </div>
 
-  <mat-form-field *ngIf="showBankAccountInput">
+  <mat-form-field *ngIf="showBankAccountInput" class="col-12">
     <mat-label>Número de cuenta bancaria</mat-label>
-    <input type="text" matInput placeholder="Escriba su número de cuenta bancaria">
+    <input formControlName="cuentaBanco" class="col-12" type="text" matInput placeholder="Escriba su número de cuenta bancaria">
   </mat-form-field>
 
-  <mat-form-field *ngIf="showBankAccountInput">
-    <mat-label>Confirmar cuenta bancara</mat-label>
-    <input type="text" matInput placeholder="Reescriba su número de cuenta bancaria">
+  <mat-form-field *ngIf="showBankAccountInput" class="col-12">
+    <mat-label>Confirmar cuenta bancaria</mat-label>
+    <input class="col-12" type="text" matInput placeholder="Reescriba su número de cuenta bancaria">
   </mat-form-field>
 
-  <button mat-button mat-flat-button color="accent">
+  <button class="col-12" mat-button mat-flat-button color="accent" (click)="onSubmit()">
     <mat-icon>login</mat-icon> Registrarme
   </button>
+</form>
 
   <div class="flex justify-content-end mt-5">
     <a href="/auth/login"> ¿Ya tienes cuenta?</a>

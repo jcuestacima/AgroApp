@@ -3,12 +3,12 @@
 <form [formGroup]="loginForm">
   <mat-form-field class="col-12 sm:col-12">
     <mat-label>Usuario</mat-label>
-    <input formControlName="usuario" id="usuario" type="text" matInput placeholder="Nombre de usuario">
+    <input formControlName="usuario" id="usuario" type="text" matInput placeholder="Nombre de usuario" required>
   </mat-form-field>
 
   <mat-form-field class="col-12 sm:col-12">
     <mat-label>Contraseña</mat-label>
-    <input formControlName="contrasena" id="contrasena" type="password" matInput placeholder="Contraseña">
+    <input formControlName="contrasena" id="contrasena" type="password" matInput placeholder="Contraseña" required>
   </mat-form-field>
 
   <button class="col-12 sm:col-12" mat-flat-button color="accent" type="submit" (click)="onLogin()">  <mat-icon>login</mat-icon>  Iniciar sesión</button>
