@@ -25,6 +25,7 @@ export class NewProductoPageComponent implements OnInit{
   imageInfos?: Observable<any>;
 
   productosInfo: Producto[]=[];
+  currentProducto?: Producto = this.productosService.currentProducto;
 
   //NO EDITABLE
   public productoForm = new FormGroup({
@@ -62,7 +63,7 @@ export class NewProductoPageComponent implements OnInit{
 
   }
 
-  get currentProducto():Producto{
+  get currentFormProducto():Producto{
     const producto = this.productoForm.value as unknown as Producto;
     return producto;
   }
@@ -70,12 +71,24 @@ export class NewProductoPageComponent implements OnInit{
     if (this.productoForm.invalid) {
       return
     }
-    this.productoForm.value.id = this.generateProductoId();
-    this.productosService.addProducto(this.currentProducto).subscribe(producto =>{
+
+    //TODO: primera condición del if inútil hay que arreglarlo
+    if (this.currentProducto) {
+      this.productosService.updateProducto(this.currentFormProducto).subscribe(producto =>{
+        this.showSnackBar(`${this.productoForm.value.nombre} se editó!`);
+        })
+    }else{
+      this.productoForm.value.id = this.generateProductoId();
+      this.productosService.addProducto(this.currentFormProducto).subscribe(producto =>{
       //todo mostrar snackbar y navegar a otra ventana
       this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
 
     })
+    }
+
+
+
+
 
 
   }

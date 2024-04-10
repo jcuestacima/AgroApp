@@ -27,5 +27,9 @@ export class LayoutPageComponent {
     this.router.navigate(['/auth/login'])
   }
 
+  verMisProductos(){
+    this.router.navigate([`./productos/productor/${this.usuario?.id}`])
+  }
+
 
 }

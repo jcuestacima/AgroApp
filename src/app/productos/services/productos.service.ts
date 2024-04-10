@@ -6,6 +6,7 @@ import { environments } from '../../../environments/environmnets';
 
 @Injectable({providedIn: 'root'})
 export class ProductoService {
+  private producto?: Producto;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -46,5 +47,12 @@ export class ProductoService {
       catchError(error => of(false)),
       map(resp =>true)
     );
+  }
+
+  get currentProducto():Producto| undefined{
+    if (!this.producto) {
+      return undefined;
+    }
+    return structuredClone( this.producto);
   }
 }

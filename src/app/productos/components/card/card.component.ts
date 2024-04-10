@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { Usuario } from '../../../auth/interfaces/user.interface';
 import { ProductoService } from '../../services/productos.service';
+import { Observable } from 'rxjs';
+import { LoginPageComponent } from '../../../auth/pages/login-page/login-page.component';
 
 @Component({
   selector: 'productos-producto-card',
@@ -20,6 +22,10 @@ export class CardComponent implements OnInit{
     return this.authService.currentUser;
   }
 
+  get productoEdit():Producto|undefined{
+    return this.productoService.currentProducto;
+  }
+
   ngOnInit(): void {
     if (!this.producto) {
       throw Error('Propiedad producto es necesaria');
@@ -30,9 +36,29 @@ export class CardComponent implements OnInit{
     this.router.navigate([`/productos/productor/${this.producto.idProductor}`]);
   }
 
-  borrarProducto(){
-    console.log(this.producto)
-    this.productoService.delteByIdProducto(this.producto);
+  borrarProducto() {
+    console.log(this.producto);
+    this.productoService.delteByIdProducto(this.producto).subscribe(
+      (result) => {
+        if (result) {
+          alert('Producto borrado exitosamente.');
+          // Aquí podrías realizar cualquier acción adicional después de borrar el producto, como actualizar la lista de productos, mostrar un mensaje de éxito, etc.
+        } else {
+          alert('Error al borrar el producto.');
+          // Manejar el caso en que la eliminación del producto no tenga éxito
+        }
+      },
+      (error) => {
+        console.error('Error al borrar el producto:', error);
+        // Manejar cualquier error que ocurra durante la solicitud HTTP
+      }
+    );
+
+    this.router.navigate([`/productos/productor/${this.usuario?.id}`]);
   }
+
+  // actualizarProducto(){
+  //   this.router.navigate([`/productos/nuevoProducto`]);
+  // }
 
 }
