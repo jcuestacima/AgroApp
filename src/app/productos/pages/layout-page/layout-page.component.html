@@ -10,11 +10,24 @@
 
     </mat-toolbar>
 
-    <mat-nav-list >
-        <mat-list-item *ngFor="let item of sidebarItems"  [routerLink]="item.url" (click)='sidenav.toggle()'>
-        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
-        {{item.label}}
+    <mat-nav-list>
+        <mat-list-item routerLink="./listaProductos" (click)='sidenav.toggle()'>
+          <mat-icon matListItemIcon>label</mat-icon>
+          Lista de productos
         </mat-list-item>
+        <mat-list-item routerLink="./buscarProducto" (click)='sidenav.toggle()'>
+          <mat-icon matListItemIcon>search</mat-icon>
+          Buscar producto
+        </mat-list-item>
+        <mat-list-item routerLink="./carritoCompra" (click)='sidenav.toggle()'>
+          <mat-icon matListItemIcon>shopping_cart</mat-icon>
+          Carrito de compra
+        </mat-list-item>
+        <mat-list-item *ngIf="usuario?.esAgricultor" routerLink="./nuevoProducto" (click)='sidenav.toggle()'>
+          <mat-icon matListItemIcon>add</mat-icon>
+          Añadir producto
+        </mat-list-item>
+
     </mat-nav-list>
 
   </mat-sidenav>
@@ -34,13 +47,19 @@
 
     <span class="spacer"></span>
 
+    ¡Bienvenido {{usuario?.usuario||"No has iniciado sesión"}}!
+    <span class="spacer"></span>
+
     <button mat-button routerLink="carritoCompra" routerLinkActive="router-link-active"  >
       <mat-icon>shopping_cart</mat-icon>
     </button>
 
 
-    <button mat-button (click)="onLogout()">
+    <button *ngIf="usuario" mat-button (click)="onLogout()">
       Cerrar sesión
+    </button>
+    <button *ngIf="!usuario" mat-button (click)="onLogout()">
+      Iniciar sesión
     </button>
 
 

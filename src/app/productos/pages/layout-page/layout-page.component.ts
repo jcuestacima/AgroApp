@@ -9,25 +9,21 @@ import { Usuario } from '../../../auth/interfaces/user.interface';
   styles: ``
 })
 export class LayoutPageComponent {
-  constructor(private router: Router, private authSerevice: AuthService){
+  constructor(private router: Router, private authService: AuthService){
   }
-  public sidebarItems = [
-    {label: 'Lista de productos', icon: 'label', url:'./listaProductos'},
-    {label: 'Añadir producto', icon: 'add', url:'./nuevoProducto'},
-    {label: 'Buscar producto', icon: 'search', url:'./buscarProducto'},
-    {label: 'Carrito de compra', icon: 'shopping_cart', url:'./carritoCompra'},
-  ]
+
+
 
   public carroCompra = [
     {url:'./listaProductos'}
   ]
 
   get usuario():Usuario |undefined{
-    return this.authSerevice.currentUser;
+    return this.authService.currentUser;
   }
 
   onLogout(){
-    this.authSerevice.logout();
+    this.authService.logout();
     this.router.navigate(['/auth/login'])
   }
 

@@ -13,9 +13,9 @@
       "id": "P002",
       "usuario": "elorri",
       "email": "john.due@gmail.com",
-      "contrasena": "contrasena",
+      "contrasena": "2",
       "direccion": "paseo del cisne",
-      "esAgricultor": true,
+      "esAgricultor": false,
       "cuentaBanco": 798653217486
     },
     {
@@ -44,14 +44,13 @@
       "precio": 0.3,
       "origen": "Canarias",
       "pesoAproximadoUnidad": "200 g"
-    },
-    {
+    },{
       "nombre": "Naranja",
       "id": "FR003",
       "idProductor": "P003",
-      "precio": 0.4,
+      "precio": 0.3,
       "origen": "Valencia",
-      "pesoAproximadoUnidad": "180 g"
+      "pesoAproximadoUnidad": "200 g"
     },
     {
       "nombre": "Uva",

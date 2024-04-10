@@ -33,6 +33,7 @@ export class AuthService{
                 const usuarioEncontrado = usuarios.find(u => u.usuario === usuario && u.contrasena === contrasena);
                 if (usuarioEncontrado) {
                     // Usuario y contraseña válidos, redirige al usuario a la página principal
+                    this.usuario = usuarioEncontrado;
                     this.router.navigate(['/']);
                 } else {
                     // Usuario o contraseña incorrectos, muestra un mensaje de error

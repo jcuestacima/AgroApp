@@ -13,7 +13,7 @@
 
   <mat-card-content class="mt-2">
     <h4><strong>Peso unitario: </strong>{{producto.pesoAproximadoUnidad}}</h4>
-    <h4><strong>Precio: </strong>{{producto.precio}}</h4>
+    <h4><strong>Precio: </strong>{{producto.precio}} € el KG</h4>
     <button style="margin-bottom: 15px;" class="col-12" mat-flat-button color="accent" (click)="irPaginaProductor()">Productor: {{producto.idProductor}}</button>
 
 
@@ -28,8 +28,21 @@
       <mat-icon>add</mat-icon>
       al carrito
     </button>
-    <mat-label class="pr-2">Kg </mat-label>
-      <input matInput #number maxlength="1" placeholder="1" value="1" size="5px">
+    <mat-label class="pr-2"><strong>Unidades:</strong> </mat-label>
+      <input matInput #number maxlength="2" placeholder="1" value="1" size="5px">
+  </mat-card-actions>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions class="pt-2" *ngIf="usuario?.esAgricultor && usuario?.id==producto.idProductor">
+    <button mat-button mat-raised color="warn" class="pr-5" (click)="borrarProducto()">
+      <mat-icon>delete</mat-icon>
+      Borrar
+    </button>
+    <button mat-button mat-raised style="margin-left: 10px;">
+      <mat-icon>update</mat-icon>
+      Editar
+    </button>
   </mat-card-actions>
 
 </mat-card>

@@ -13,9 +13,9 @@
       "id": "P002",
       "usuario": "elorri",
       "email": "john.due@gmail.com",
-      "contrasena": "contrasena",
+      "contrasena": "2",
       "direccion": "paseo del cisne",
-      "esAgricultor": true,
+      "esAgricultor": false,
       "cuentaBanco": 798653217486
     },
     {
@@ -44,14 +44,13 @@
       "precio": 0.3,
       "origen": "Canarias",
       "pesoAproximadoUnidad": "200 g"
-    },
-    {
+    },{
       "nombre": "Naranja",
       "id": "FR003",
       "idProductor": "P003",
-      "precio": 0.4,
+      "precio": 0.3,
       "origen": "Valencia",
-      "pesoAproximadoUnidad": "180 g"
+      "pesoAproximadoUnidad": "200 g"
     },
     {
       "nombre": "Uva",
@@ -96,7 +95,7 @@
     {
       "nombre": "Melón",
       "id": "FR010",
-      "idProductor": "P010",
+      "idProductor": "P002",
       "precio": 1.2,
       "origen": "Extremadura",
       "pesoAproximadoUnidad": "1500 g"
@@ -104,7 +103,7 @@
     {
       "nombre": "Limón",
       "id": "FR012",
-      "idProductor": "P012",
+      "idProductor": "P004",
       "precio": 0.4,
       "origen": "Murcia",
       "pesoAproximadoUnidad": "80 g"
@@ -112,7 +111,7 @@
     {
       "nombre": "Mandarina",
       "id": "FR022",
-      "idProductor": "P022",
+      "idProductor": "P001",
       "precio": 0.6,
       "origen": "Murcia",
       "pesoAproximadoUnidad": "100 g"
@@ -120,7 +119,7 @@
     {
       "nombre": "Zanahoria",
       "id": "HO001",
-      "idProductor": "P026",
+      "idProductor": "P009",
       "precio": 0.3,
       "origen": "Segovia",
       "pesoAproximadoUnidad": "120 g"
@@ -128,7 +127,7 @@
     {
       "nombre": "Tomate",
       "id": "HO004",
-      "idProductor": "P029",
+      "idProductor": "P006",
       "precio": 0.4,
       "origen": "Murcia",
       "pesoAproximadoUnidad": "150 g"
@@ -136,7 +135,7 @@
     {
       "nombre": "Pimiento",
       "id": "HO005",
-      "idProductor": "P030",
+      "idProductor": "P010",
       "precio": 0.5,
       "origen": "Almería",
       "pesoAproximadoUnidad": "100 g"
@@ -144,7 +143,7 @@
     {
       "nombre": "Lechuga",
       "id": "HO006",
-      "idProductor": "P031",
+      "idProductor": "P005",
       "precio": 0.3,
       "origen": "Badajoz",
       "pesoAproximadoUnidad": "200 g"
@@ -152,7 +151,7 @@
     {
       "nombre": "Pepino",
       "id": "HO008",
-      "idProductor": "P033",
+      "idProductor": "P007",
       "precio": 0.3,
       "origen": "Albacete",
       "pesoAproximadoUnidad": "150 g"
@@ -160,7 +159,7 @@
     {
       "nombre": "Calabacín",
       "id": "HO010",
-      "idProductor": "P035",
+      "idProductor": "P012",
       "precio": 0.4,
       "origen": "Guadalajara",
       "pesoAproximadoUnidad": "200 g"
@@ -168,7 +167,7 @@
     {
       "nombre": "Escarola",
       "id": "HO013",
-      "idProductor": "P038",
+      "idProductor": "P013",
       "precio": 0.3,
       "origen": "Málaga",
       "pesoAproximadoUnidad": "150 g"
@@ -176,7 +175,7 @@
     {
       "nombre": "Berenjena",
       "id": "HO022",
-      "idProductor": "P047",
+      "idProductor": "P014",
       "precio": 0.5,
       "origen": "Navarra",
       "pesoAproximadoUnidad": "180 g"
@@ -184,7 +183,7 @@
     {
       "nombre": "Espárrago",
       "id": "HO023",
-      "idProductor": "P048",
+      "idProductor": "P015",
       "precio": 0.7,
       "origen": "Navarra",
       "pesoAproximadoUnidad": "100 g"
@@ -192,7 +191,7 @@
     {
       "nombre": "Guisante",
       "id": "HO024",
-      "idProductor": "P049",
+      "idProductor": "P014",
       "precio": 0.6,
       "origen": "Pontevedra",
       "pesoAproximadoUnidad": "80 g"

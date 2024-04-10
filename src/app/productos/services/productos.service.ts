@@ -40,7 +40,7 @@ export class ProductoService {
   }
 
   delteByIdProducto(producto: Producto):Observable<boolean>{
-
+    debugger
     return this.httpClient.delete(`${this.baseUrl}/productos/${producto.id}`)
     .pipe(
       catchError(error => of(false)),
