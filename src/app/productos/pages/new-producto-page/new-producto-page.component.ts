@@ -79,6 +79,7 @@ export class NewProductoPageComponent implements OnInit{
         })
     }else{
       this.productoForm.value.id = this.generateProductoId();
+      this.productoForm.value.idProductor = this.authService.currentUser?.id;
       this.productosService.addProducto(this.currentFormProducto).subscribe(producto =>{
       //todo mostrar snackbar y navegar a otra ventana
       this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
