@@ -58,22 +58,30 @@ export class RegisterPageComponent implements OnInit{
     const usuario = this.registerForm.value as unknown as Usuario;
     return usuario;
   }
-  onSubmit(){
+  onSubmit() {
     if (this.registerForm.invalid) {
-      return
+      return;
     }
 
-    console.log(this.currentUsuario);
+    const nuevoUsuario = this.registerForm.value as Usuario;
 
+    // Verificar si ya existe un usuario con el mismo nombre de usuario
+    const usuarioExistente = this.usuariosInfo.find(usuario => usuario.usuario === nuevoUsuario.usuario);
 
-    this.registerForm.value.id = this.generateUsuarioId();
-    this.authService.addUsuario(this.currentUsuario).subscribe(usuario =>{
-      //todo mostrar snackbar y navegar a otra ventana
-      this.showSnackBar(`${this.registerForm.value.usuario} se añadió!`);
+    if (usuarioExistente) {
+      this.showSnackBar(`El nombre de usuario '${nuevoUsuario.usuario}' ya está en uso. Por favor, elige otro.`);
+      return;
+    }
 
-    })
+    nuevoUsuario.id = this.generateUsuarioId();
+
+    this.authService.addUsuario(nuevoUsuario).subscribe(usuario => {
+      this.showSnackBar(`${nuevoUsuario.usuario} se añadió!`);
+    });
+
     this.router.navigate(['./auth/login']);
   }
+
 
   showSnackBar(message: string): void{
     this.snackBar.open(message, 'Cerrar', {duration: 3000})

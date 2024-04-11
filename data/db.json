@@ -29,16 +29,6 @@
       "esAgricultor": true,
       "cuentaBanco": 798653217486,
       "telefono": 123456789
-    },
-    {
-      "usuario": "pp",
-      "contrasena": "ad",
-      "id": "P004",
-      "email": "ad",
-      "direccion": "ad",
-      "esAgricultor": false,
-      "cuentaBanco": "",
-      "telefono": "00000000000"
     }
   ],
   "productos": [
@@ -231,46 +221,40 @@
       "id": 3
     },
     {
-      "contenido": "afdfadd",
+      "contenido": "No son de valencia, mentiroso",
       "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
+      "idProductor": "P003",
       "id": 4
     },
     {
-      "contenido": "asfadsfafdasf",
-      "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
+      "contenido": "Si son de valencia",
+      "usuarioCliente": "elorri",
+      "idProductor": "P003",
       "id": 5
+    }
+  ],
+  "mensajes": [
+    {
+      "contenido": "primer mensaje",
+      "idProductor": "P002",
+      "idCliente": "P003",
+      "id": "P002P003",
+      "emisor": "P003"
     },
     {
-      "contenido": "asfadsfafdasf",
-      "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
-      "id": 6
+      "contenido": "segundo mensaje",
+      "idProductor": "P002",
+      "idCliente": "P003",
+      "id": "P002P003",
+      "emisor": "P002"
     },
     {
-      "contenido": "asfadsfafdasf",
-      "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
-      "id": 7
-    },
-    {
-      "contenido": "asfadsfafdasf",
-      "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
-      "id": 8
-    },
-    {
-      "contenido": "asfadsfafdasf",
-      "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
-      "id": 9
-    },
-    {
-      "contenido": "asfadsfafdasf",
-      "usuarioCliente": "Usuario desconocido",
-      "idProductor": "P001",
-      "id": 10
+      "contenido": "ya?",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "P003",
+      "idComunicacion": "P002P003",
+      "id": "CooFltj"
     }
   ]
 }

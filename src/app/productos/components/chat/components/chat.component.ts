@@ -4,6 +4,13 @@ import { AuthService } from '../../../../auth/services/auth.service';
 import { Usuario } from '../../../../auth/interfaces/user.interface';
 import { ProductorPageComponent } from '../../../pages/productor-page/productor.page';
 import {  ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { environments } from '../../../../../environments/environmnets';
+import { Mensaje } from '../interfaces/mensaje.interface';
+import { Observable, catchError, tap, throwError } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -16,19 +23,31 @@ export class ChatComponent implements OnInit {
   @Input() currentUser?: Usuario;
   @Input() agricultor?: Usuario;
   messageText: string = '';
-  messages: { sender: string, text: string }[] = [];
+  messages: Mensaje[] = [];
+  private baseUrl: string = environments.baseUrl;
 
-  constructor(private authService: AuthService, private productorPage: ProductorPageComponent){}
+  constructor(private snackBar: MatSnackBar, private httpClient: HttpClient, private authService: AuthService, private productorPage: ProductorPageComponent){}
 
   ngOnInit(){
     this.currentUser = this.authService.currentUser;
-  if (!this.currentUser) {
-    this.currentUser = { usuario: "Inicia sesión", contrasena:"",cuentaBanco:"",direccion:"",email:"",id:"",esAgricultor:false, telefono: 0};
-  }
+    if (!this.currentUser) {
+      this.currentUser = { usuario: "Inicia sesión", contrasena:"",cuentaBanco:"",direccion:"",email:"",id:"",esAgricultor:false, telefono: 0};
+    }
 
     this.agricultor = this.productorPage.thisProductor;
 
+    // Llama a getMensajesIdComunicacion con la identificación de la comunicación adecuada
+    const idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!);
+    this.getMensajesIdComunicacion(idComunicacion);
   }
+
+  public chatForm = new FormGroup({
+    contenido:            new FormControl('', {nonNullable:true}),
+    idCliente:            new FormControl(this.currentUser?.id),
+    idProductor:          new FormControl(this.productorPage.getIdProductorFromUrl()),
+    emisor: new FormControl(this.currentUser),
+    idComunicacion: new FormControl(this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!)),
+  });
 
   ngAfterViewChecked() {
     this.scrollToBottom();
@@ -40,12 +59,53 @@ export class ChatComponent implements OnInit {
     } catch(err) { }
   }
 
-  sendMessage(text: string) {
-    if (text.trim() !== '') {
-      if (this.currentUser && this.agricultor) {
-        const sender = this.currentUser.usuario;
-        this.messages.push({ sender, text });
-      }
+
+
+sendMessage() {
+  if (this.chatForm.value.contenido) {
+    if (this.currentUser?.id) {
+      const mensajeData = this.chatForm.value as unknown as Mensaje;
+
+      mensajeData.emisor = this.currentUser.id;
+      mensajeData.idCliente = this.currentUser.id;
+      mensajeData.idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!)
+
+      this.addMensaje(mensajeData)
+        .pipe(
+          tap(() => {
+            this.showSnackBar(`Mensaje enviado.`);
+          }),
+          catchError((error) => {
+            console.error('Error al enviar el mensaje:', error);
+            this.showSnackBar('Error al enviar el mensaje. Inténtalo de nuevo más tarde.');
+            throw error; // Re-emitir el error para que el controlador de errores superior pueda manejarlo
+          })
+        )
+        .subscribe(); // Suscripción necesaria para activar la cadena de operadores
+    } else {
+      alert("Inicia sesión para enviar mensajes");
     }
   }
+}
+
+addMensaje(mensaje: Mensaje): Observable<void> {
+  return this.httpClient.post<void>(`${this.baseUrl}/mensajes`, mensaje);
+}
+
+
+  showSnackBar(message: string): void {
+    this.snackBar.open(message, 'Cerrar', { duration: 3000 });
+  }
+
+  getMensajes():Observable<Mensaje[]>{
+    return this.httpClient.get<Mensaje[]>(`${this.baseUrl}/mansajes`);
+  }
+
+  getMensajesIdComunicacion(idComunicacion: string) {
+    this.getMensajes().subscribe(mensajes => {
+      // Filtramos los mensajes por la ID de la comunicación
+      this.messages = mensajes.filter(mensaje => mensaje.idComunicacion === idComunicacion);
+    });
+  }
+
 }

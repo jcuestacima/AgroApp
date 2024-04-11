@@ -27,6 +27,7 @@ export class ProductorPageComponent implements OnInit{
   constructor(private snackBar: MatSnackBar,private httpClient: HttpClient, private productosService: ProductoService, private router: Router, private authServic: AuthService) {}
 
   ngOnInit() {
+    this.currentUser = this.authServic.currentUser;
     // Obtenemos el ID del productor de la URL actual
     this.idProductor = this.getIdProductorFromUrl();
 
@@ -45,10 +46,6 @@ export class ProductorPageComponent implements OnInit{
     contenido:              new FormControl('', {nonNullable:true}),
     usuarioCliente:                   new FormControl(this.currentUser?.usuario),
     idProductor:          new FormControl(this.getIdProductorFromUrl()),
-
-
-
-
   });
 
   getIdProductorFromUrl(): string {
@@ -79,17 +76,27 @@ export class ProductorPageComponent implements OnInit{
   }
 
   submitResena() {
-    const resenaData = this.resenaForm.value; // Obtener los valores del formulario
-    const resena: Resena = {
+
+    if (this.currentUser?.id) {
+      const resenaData = this.resenaForm.value; // Obtener los valores del formulario
+      const resena: Resena = {
       contenido: resenaData.contenido || "Se han perdido los datos de la reseña",
       usuarioCliente: this.currentUser?.usuario ||"Usuario desconocido",
       idProductor: this.getIdProductorFromUrl()
-    };
+      };
 
-    this.addResena(resena).subscribe(producto => {
+      this.addResena(resena).subscribe(producto => {
       // Mostrar snackbar y navegar a otra ventana
       this.showSnackBar(`Reseña añadida!`);
-    });
+      });
+    }else{
+      alert("Inica sesión para añadir una reseña")
+    }
+
+
+
+
+
   }
 
   showSnackBar(message: string): void{
