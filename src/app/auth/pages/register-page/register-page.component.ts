@@ -28,6 +28,7 @@ export class RegisterPageComponent implements OnInit{
     direccion:new FormControl('', {nonNullable: true}),
     esAgricultor:new FormControl<boolean>(false, {nonNullable: true}),
     cuentaBanco:new FormControl('', {nonNullable: false}),
+    telefono:new FormControl(0, {nonNullable: true}),
   });
 
   ngOnInit(){

@@ -15,6 +15,7 @@ import { ProductoImagePipe } from './pipes/producto-image.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { ProductorPageComponent } from './pages/productor-page/productor.page';
+import { ChatModule } from './components/chat/chat.module';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { ProductorPageComponent } from './pages/productor-page/productor.page';
     CardComponent,
     CarroCompraComponent,
     ProductoImagePipe,
-    ProductorPageComponent
+    ProductorPageComponent,
 
   ],
   imports: [
@@ -36,7 +37,8 @@ import { ProductorPageComponent } from './pages/productor-page/productor.page';
     MaterialModule,
     ReactiveFormsModule,
     MatRadioGroup,
-    MatRadioButton
+    MatRadioButton,
+    ChatModule
   ]
 })
 export class ProductosModule { }

@@ -8,4 +8,5 @@ export interface Usuario {
   direccion:    string;
   esAgricultor: boolean;
   cuentaBanco:  string;
+  telefono: number;
 }

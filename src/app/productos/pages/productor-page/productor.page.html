@@ -1,11 +1,89 @@
-<div>
-  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" routerLink="/productos/listaProductos" routerLinkActive="router-link-active" >
+
+  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" routerLink="/productos/listaProductos" routerLinkActive="router-link-active">
     Volver a la lista de productos
   </button>
-  <h1><strong>PRODUCTOR:</strong> {{getIdProductorFromUrl()}}</h1>
-</div>
+  <div style="display: flex;">
+    <div style="flex: 1;">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1><strong>DATOS DEL AGRICULTOR</strong></h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content style="height: 197px;">
+          <h2><strong>USUARIO:</strong> {{ thisProductor?.usuario }} <span class="spacer"></span><strong>ID:</strong> {{ idProductor }}</h2>
+          <h2><strong>DIRECCIÓN:</strong> {{ thisProductor?.direccion }}</h2>
+          <h2><strong>CORREO ELECTRÓNICO:</strong> {{ thisProductor?.email }}</h2>
+          <h2><strong>TELÉFONO:</strong> {{ thisProductor?.telefono }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div style="flex: 1;">
+      <mat-card style="height:fit-content;;">
+        <mat-card-header>
+          <mat-card-title>
+            <h1><strong>CHAT</strong></h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          <app-chat [currentUser]="currentUser" [agricultor]="thisProductor"></app-chat>
 
-<div class="grid bm-8 pt-2">
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+
+  <div style="display: flex; margin-top: 15px;" >
+
+    <div style="flex: 1; margin-top: 50px;" >
+      <mat-card style="height:fit-content;;">
+        <mat-card-header>
+          <mat-card-title>
+            <h1><strong>AÑADIR RESEÑA</strong></h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+
+          <form [formGroup]="resenaForm" (ngSubmit)="submitResena()">
+            <mat-form-field class="col-12 sm:col-10">
+              <mat-label>Escriba su reseña aquí</mat-label>
+              <input matInput type="text" required formControlName="contenido"/>
+            </mat-form-field>
+            <button mat-flat-button color="primary" type="submit"><mat-icon style="margin-left: 3px;">add</mat-icon></button>
+          </form>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div style="flex: 1;">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1><strong>RESEÑAS</strong></h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content style="height: 197px; overflow-y: auto;">
+          <div *ngFor="let resena of resenasDelProductor">
+            <div><strong>{{ resena.usuarioCliente }}</strong>: {{ resena.contenido }}</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+
+
+
+
+
+<div class="grid bm-8 mt-2" >
   <div *ngFor="let producto of productosDelProductor" class="col-12 sm:col-4 md:col-3 xl: col-2">
 
     <productos-producto-card [producto]="producto"></productos-producto-card>

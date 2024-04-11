@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environments } from '../../../environments/environmnets';
 import { Usuario } from '../interfaces/user.interface';
-import { Observable, catchError, filter, of, tap } from 'rxjs';
+import { Observable, catchError, filter, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
@@ -11,6 +11,7 @@ export class AuthService{
   private baseUrl = environments.baseUrl;
   private usuario?: Usuario;
   private usuariosInfo: Usuario[]=[];
+  private productor?: Usuario;
   constructor(private httpClient: HttpClient, private router: Router,) { }
 
   get currentUser():Usuario| undefined{
@@ -47,6 +48,16 @@ export class AuthService{
             console.error('Error al obtener usuarios:', error);
         }
     });
+}
+
+searchProductorById(id: string): Observable<Usuario | undefined> {
+  return this.httpClient.get<Usuario[]>(`${this.baseUrl}/usuarios/`).pipe(
+    map(usuarios => usuarios.find(usuario => usuario.id === id)),
+    catchError(error => {
+      console.error('Error al buscar productor:', error);
+      return of(undefined); // Devuelve un observable de tipo Usuario | undefined en caso de error
+    })
+  );
 }
 
 

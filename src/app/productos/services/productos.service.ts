@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
 import { Producto } from '../interfaces/productos.interface';
 import { environments } from '../../../environments/environmnets';
+import { Resena } from '../interfaces/resena.interface';
 
 @Injectable({providedIn: 'root'})
 export class ProductoService {
@@ -14,6 +15,9 @@ export class ProductoService {
 
   getProductos():Observable<Producto[]>{
     return this.httpClient.get<Producto[]>(`${this.baseUrl}/productos`);
+  }
+  getResenas():Observable<Resena[]>{
+    return this.httpClient.get<Resena[]>(`${this.baseUrl}/resenas`);
   }
 
   getSuggestions(query: string):Observable<Producto[]>{
@@ -42,7 +46,7 @@ export class ProductoService {
 
   delteByIdProducto(producto: Producto):Observable<boolean>{
     debugger
-    return this.httpClient.delete(`${this.baseUrl}/productos/${producto.id}`)
+    return this.httpClient.delete(`${this.baseUrl}/listaProductos`)
     .pipe(
       catchError(error => of(false)),
       map(resp =>true)

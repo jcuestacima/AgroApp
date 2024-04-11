@@ -8,6 +8,7 @@ import { ListPageComponent } from '../list-page/list-page.component';
 import { JsonPipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileUploadService } from '../../../shared/file-upload/file-upload.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-new-producto-page',
@@ -46,7 +47,8 @@ export class NewProductoPageComponent implements OnInit{
 
   constructor(private uploadService: FileUploadService,
     private productosService: ProductoService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -79,6 +81,7 @@ export class NewProductoPageComponent implements OnInit{
         })
     }else{
       this.productoForm.value.id = this.generateProductoId();
+      this.productoForm.value.idProductor = this.authService.currentUser?.id;
       this.productosService.addProducto(this.currentFormProducto).subscribe(producto =>{
       //todo mostrar snackbar y navegar a otra ventana
       this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
