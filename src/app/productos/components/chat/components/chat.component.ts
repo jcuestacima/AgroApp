@@ -25,6 +25,7 @@ export class ChatComponent implements OnInit {
   messageText: string = '';
   messages: Mensaje[] = [];
   private baseUrl: string = environments.baseUrl;
+  private idComunicacion: string='';
 
   constructor(private snackBar: MatSnackBar, private httpClient: HttpClient, private authService: AuthService, private productorPage: ProductorPageComponent){}
 
@@ -37,11 +38,11 @@ export class ChatComponent implements OnInit {
     this.agricultor = this.productorPage.thisProductor;
 
     // Llama a getMensajesIdComunicacion con la identificación de la comunicación adecuada
-    const idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!);
-    console.log(idComunicacion)
+    this.idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!);
+    console.log(this.idComunicacion)
 
     if (this.currentUser.id) {
-      this.getMensajes(idComunicacion).subscribe(mensajes => {
+      this.getMensajes(this.idComunicacion).subscribe(mensajes => {
         this.messages = mensajes;
       });
     }
@@ -82,6 +83,7 @@ sendMessage() {
         .pipe(
           tap(() => {
             this.showSnackBar(`Mensaje enviado.`);
+            this.getMensajes(mensajeData.idComunicacion)
           }),
           catchError((error) => {
             console.error('Error al enviar el mensaje:', error);
@@ -89,7 +91,8 @@ sendMessage() {
             throw error; // Re-emitir el error para que el controlador de errores superior pueda manejarlo
           })
         )
-        .subscribe(); // Suscripción necesaria para activar la cadena de operadores
+        .subscribe(
+        ); // Suscripción necesaria para activar la cadena de operadores
     } else {
       alert("Inicia sesión para enviar mensajes");
     }

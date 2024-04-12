@@ -5,12 +5,14 @@ import { Producto } from '../interfaces/productos.interface';
 import { environments } from '../../../environments/environmnets';
 import { Resena } from '../interfaces/resena.interface';
 import { ChatComponent } from '../components/chat/components/chat.component';
+import { Mensaje } from '../components/chat/interfaces/mensaje.interface';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable({providedIn: 'root'})
 export class ProductoService {
   private producto?: Producto;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private authService: AuthService) { }
 
   private baseUrl: string = environments.baseUrl;
 
@@ -46,7 +48,7 @@ export class ProductoService {
     return this.httpClient.patch<Producto>(`${this.baseUrl}/productos/${producto.id}`, producto);
   }
 
-  delteByIdProducto(producto: Producto):Observable<boolean>{
+  deleteByIdProducto(producto: Producto):Observable<boolean>{
     debugger
     return this.httpClient.delete(`${this.baseUrl}/listaProductos`)
     .pipe(

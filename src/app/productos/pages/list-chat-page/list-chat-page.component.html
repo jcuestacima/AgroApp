@@ -1,0 +1,25 @@
+<h1 style="margin-top: 15px; "><strong style="font-size: xx-large;">Mis Chats</strong></h1>
+
+<mat-divider></mat-divider>
+<div>
+  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" (click)="verMisProductos()" >
+    Volver a mi perfil
+  </button>
+</div>
+<div class="grid bm-8 pt-2">
+  <ng-container *ngFor="let emisor of emisoresUnicos">
+    <div style="flex: 1;">
+      <mat-card style="height:fit-content;;">
+        <mat-card-header>
+          <mat-card-title>
+            <h1><strong>{{emisor}}</strong></h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+          chat
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

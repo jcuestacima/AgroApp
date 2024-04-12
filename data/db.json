@@ -2,9 +2,9 @@
   "usuarios": [
     {
       "id": "P001",
-      "usuario": "John Doe",
+      "usuario": "inaki",
       "email": "john.due@gmail.com",
-      "contrasena": "contrasena",
+      "contrasena": "1",
       "direccion": "paseo del cisne",
       "esAgricultor": true,
       "cuentaBanco": 798653217486,
@@ -14,7 +14,7 @@
       "id": "P002",
       "usuario": "elorri",
       "email": "john.due@gmail.com",
-      "contrasena": "2",
+      "contrasena": "1",
       "direccion": "paseo del cisne",
       "esAgricultor": false,
       "cuentaBanco": 798653217486,
@@ -199,6 +199,16 @@
       "precio": 0.6,
       "origen": "Pontevedra",
       "pesoAproximadoUnidad": "80 g"
+    },
+    {
+      "nombre": "adsf",
+      "id": "FR023",
+      "idProductor": "P003",
+      "precio": 0,
+      "origen": "adsfads",
+      "pesoAproximadoUnidad": 0,
+      "esFRoHO": "FR",
+      "alt_img": ""
     }
   ],
   "resenas": [
@@ -231,6 +241,18 @@
       "usuarioCliente": "elorri",
       "idProductor": "P003",
       "id": 5
+    },
+    {
+      "contenido": "aslfjasdfkdas",
+      "usuarioCliente": "elorri",
+      "idProductor": "P001",
+      "id": 6
+    },
+    {
+      "contenido": "no",
+      "usuarioCliente": "inaki",
+      "idProductor": "P003",
+      "id": 7
     }
   ],
   "mensajes": [
@@ -279,6 +301,126 @@
       "emisor": "javi",
       "idComunicacion": "P002P003",
       "id": "dZkt27s"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "vCvKXgE"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "28KtIXf"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "I7sJyYG"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "qR2ggov"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "9k_AUdy"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "mar_erK"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "B5ZvfgE"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "Zuhw9EZ"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "NmpI3mJ"
+    },
+    {
+      "contenido": "quiero mis manzanas",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "elorri",
+      "idComunicacion": "P001P002",
+      "id": "pbrgvKQ"
+    },
+    {
+      "contenido": "mandalas ya pero",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "elorri",
+      "idComunicacion": "P001P002",
+      "id": "A_-VPHZ"
+    },
+    {
+      "contenido": "rapido",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "elorri",
+      "idComunicacion": "P001P002",
+      "id": "YfklmPw"
+    },
+    {
+      "contenido": "perro",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "wMSpPAZ"
+    },
+    {
+      "contenido": "eyjet",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "HDbRfQm"
+    },
+    {
+      "contenido": "eyjet",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "wLQ7jIF"
     }
   ]
 }

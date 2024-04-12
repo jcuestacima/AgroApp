@@ -26,7 +26,12 @@
 
         <mat-list-item *ngIf="usuario?.esAgricultor" (click)='verMisProductos()'>
           <mat-icon matListItemIcon>list</mat-icon>
-          Mis productos
+          Mi perfil
+        </mat-list-item>
+
+        <mat-list-item *ngIf="usuario?.esAgricultor" routerLink="./misChats" (click)='sidenav.toggle()'>
+          <mat-icon matListItemIcon>chat</mat-icon>
+          Mis chats
         </mat-list-item>
 
         <mat-list-item *ngIf="usuario?.esAgricultor" routerLink="./nuevoProducto" (click)='sidenav.toggle()'>

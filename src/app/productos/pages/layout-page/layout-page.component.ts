@@ -31,6 +31,8 @@ export class LayoutPageComponent {
     this.router.navigate([`./productos/productor/${this.usuario?.id}`])
   }
 
-
+  verMisChats(){
+    this.router.navigate([`./productos/misChats`])
+  }
 
 }

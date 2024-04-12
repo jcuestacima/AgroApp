@@ -9,6 +9,7 @@ import { CarroCompraComponent } from './pages/carroCompraPage/carroCompra.compon
 import { RegisterPageComponent } from '../auth/pages/register-page/register-page.component';
 import { LoginPageComponent } from '../auth/pages/login-page/login-page.component';
 import { ProductorPageComponent } from './pages/productor-page/productor.page';
+import { ChatListPageComponent } from './pages/list-chat-page/list-chat-page.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
       {path:'carritoCompra', component: CarroCompraComponent},
       {path:'auth/login', component: LoginPageComponent},
       {path:'productor/:id', component: ProductorPageComponent},
+      {path:'misChats', component: ChatListPageComponent},
       {path:'**', redirectTo:'listaProductos'}
     ]
   }

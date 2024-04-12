@@ -2,6 +2,9 @@
   <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" routerLink="/productos/listaProductos" routerLinkActive="router-link-active">
     Volver a la lista de productos
   </button>
+  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px; margin-left: 10px;" routerLink="/productos/misChats" routerLinkActive="router-link-active">
+    Ver chats con mis clientes
+  </button>
   <div style="display: flex;">
     <div style="flex: 1;">
       <mat-card>
@@ -11,8 +14,8 @@
           </mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
-        <mat-card-content style="height: 197px;">
-          <h2><strong>USUARIO:</strong> {{ thisProductor?.usuario }} <span class="spacer"></span><strong>ID:</strong> {{ idProductor }}</h2>
+        <mat-card-content style="height: 208px;">
+          <h2 style="margin-top: 20px;"><strong>USUARIO:</strong> {{ thisProductor?.usuario }} <span class="spacer"></span><strong>ID:</strong> {{ idProductor }}</h2>
           <h2><strong>DIRECCIÓN:</strong> {{ thisProductor?.direccion }}</h2>
           <h2><strong>CORREO ELECTRÓNICO:</strong> {{ thisProductor?.email }}</h2>
           <h2><strong>TELÉFONO:</strong> {{ thisProductor?.telefono }}</h2>

@@ -38,24 +38,21 @@ export class CardComponent implements OnInit{
 
   borrarProducto() {
     console.log(this.producto);
-    this.productoService.delteByIdProducto(this.producto).subscribe(
-      (result) => {
-        if (result) {
-          alert('Producto borrado exitosamente.');
-          // Aquí podrías realizar cualquier acción adicional después de borrar el producto, como actualizar la lista de productos, mostrar un mensaje de éxito, etc.
-        } else {
-          alert('Error al borrar el producto.');
-          // Manejar el caso en que la eliminación del producto no tenga éxito
-        }
+    this.productoService.deleteByIdProducto(this.producto).subscribe(
+      () => {
+        alert('Producto borrado exitosamente.');
+        // Aquí podrías realizar cualquier acción adicional después de borrar el producto, como actualizar la lista de productos, mostrar un mensaje de éxito, etc.
       },
       (error) => {
         console.error('Error al borrar el producto:', error);
+        alert('Error al borrar el producto.');
         // Manejar cualquier error que ocurra durante la solicitud HTTP
       }
     );
 
     this.router.navigate([`/productos/productor/${this.usuario?.id}`]);
   }
+
 
   // actualizarProducto(){
   //   this.router.navigate([`/productos/nuevoProducto`]);

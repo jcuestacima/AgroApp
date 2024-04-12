@@ -85,6 +85,7 @@ export class ProductorPageComponent implements OnInit{
       };
 
       this.addResena(resena).subscribe(producto => {
+        this.getResenasDelProductor(resena.idProductor)
       // Mostrar snackbar y navegar a otra ventana
       this.showSnackBar(`Reseña añadida!`);
       });
