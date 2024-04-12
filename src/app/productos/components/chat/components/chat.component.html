@@ -9,11 +9,13 @@
 <div class="input-container" *ngIf="currentUser && agricultor">
   <div class="flex">
 
-  <form [formGroup]="chatForm">
-    <input type="text" required formControlName="contenido" placeholder="Escribir un mensaje...">
-    <button (click)="sendMessage()"><mat-icon>send</mat-icon></button>
+    <form [formGroup]="chatForm" class="message-form">
+      <input style="width: 500px;" type="text" required formControlName="contenido" placeholder="Escribir un mensaje...">
+      <button mat-icon-button (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </form>
 
-  </form>
 
 </div>
 </div>

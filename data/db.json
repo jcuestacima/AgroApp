@@ -238,14 +238,14 @@
       "contenido": "primer mensaje",
       "idProductor": "P002",
       "idCliente": "P003",
-      "id": "P002P003",
+      "idComunicacion": "P002P003",
       "emisor": "P003"
     },
     {
       "contenido": "segundo mensaje",
       "idProductor": "P002",
       "idCliente": "P003",
-      "id": "P002P003",
+      "idComunicacion": "P002P003",
       "emisor": "P002"
     },
     {
@@ -255,6 +255,30 @@
       "emisor": "P003",
       "idComunicacion": "P002P003",
       "id": "CooFltj"
+    },
+    {
+      "contenido": "como vas",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "P003",
+      "idComunicacion": "P001P003",
+      "id": "mWGs_Kh"
+    },
+    {
+      "contenido": "ey",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "NX0vTDl"
+    },
+    {
+      "contenido": "funciona aun esto?",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "dZkt27s"
     }
   ]
 }

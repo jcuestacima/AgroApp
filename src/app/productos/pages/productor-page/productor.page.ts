@@ -33,7 +33,6 @@ export class ProductorPageComponent implements OnInit{
 
     this.authServic.searchProductorById(this.idProductor).subscribe(productor => {
       this.thisProductor = productor;
-      console.log('Productor encontrado:', productor);
     });
 
     this.getResenasDelProductor(this.idProductor);

@@ -42,3 +42,14 @@
 .input-container button:hover {
   background-color: #0056b3;
 }
+
+.message-form {
+  display: flex; /* Hace que los elementos se muestren en línea */
+  align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.message-form input {
+  flex: 1; /* Hace que el input ocupe todo el espacio disponible */
+  margin-right: 8px; /* Espacio entre el input y el botón */
+}
+

@@ -38,7 +38,15 @@ export class ChatComponent implements OnInit {
 
     // Llama a getMensajesIdComunicacion con la identificación de la comunicación adecuada
     const idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!);
-    this.getMensajesIdComunicacion(idComunicacion);
+    console.log(idComunicacion)
+
+    if (this.currentUser.id) {
+      this.getMensajes(idComunicacion).subscribe(mensajes => {
+        this.messages = mensajes;
+      });
+    }
+
+
   }
 
   public chatForm = new FormGroup({
@@ -66,7 +74,7 @@ sendMessage() {
     if (this.currentUser?.id) {
       const mensajeData = this.chatForm.value as unknown as Mensaje;
 
-      mensajeData.emisor = this.currentUser.id;
+      mensajeData.emisor = this.currentUser.usuario;
       mensajeData.idCliente = this.currentUser.id;
       mensajeData.idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!)
 
@@ -97,15 +105,21 @@ addMensaje(mensaje: Mensaje): Observable<void> {
     this.snackBar.open(message, 'Cerrar', { duration: 3000 });
   }
 
-  getMensajes():Observable<Mensaje[]>{
-    return this.httpClient.get<Mensaje[]>(`${this.baseUrl}/mansajes`);
+  getMensajes(idComunicacion: string):Observable<Mensaje[]>{
+    return this.httpClient.get<Mensaje[]>(`${this.baseUrl}/mensajes/?q=${idComunicacion}`);
   }
 
-  getMensajesIdComunicacion(idComunicacion: string) {
-    this.getMensajes().subscribe(mensajes => {
-      // Filtramos los mensajes por la ID de la comunicación
-      this.messages = mensajes.filter(mensaje => mensaje.idComunicacion === idComunicacion);
-    });
-  }
-
+  // getMensajesIdComunicacion(idComunicacion: string): Observable<Mensaje[]> {
+  //   return this.getMensajes().pipe(
+  //     tap(mensajes => {
+  //       // Filtramos los mensajes por la ID de la comunicación
+  //       this.messages = mensajes.filter(mensaje => mensaje.idComunicacion === idComunicacion);
+  //     }),
+  //     catchError(error => {
+  //       console.error('Error al obtener mensajes:', error);
+  //       this.showSnackBar('Error al obtener los mensajes. Inténtalo de nuevo más tarde.');
+  //       return throwError(error); // Re-emitir el error para que el controlador de errores superior pueda manejarlo
+  //     })
+  //   );
+  // }
 }
