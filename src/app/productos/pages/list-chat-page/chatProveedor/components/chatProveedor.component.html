@@ -1,0 +1,21 @@
+
+
+<div class="chat-container" #chatContainer>
+  <div *ngFor="let message of messages" class="message" [ngClass]="{ 'sent': message.emisor === currentUser!.usuario, 'received': message.emisor === agricultor?.usuario}">
+    <strong>{{ message.emisor }}:</strong> {{ message.contenido }}
+  </div>
+</div>
+
+<div class="input-container" *ngIf="currentUser && agricultor">
+  <div class="flex">
+
+    <form [formGroup]="chatForm" class="message-form">
+      <input style="width: 500px;" type="text" required formControlName="contenido" placeholder="Escribir un mensaje...">
+      <button mat-icon-button (click)="sendMessage()">
+        <mat-icon>send</mat-icon>
+      </button>
+    </form>
+
+
+</div>
+</div>

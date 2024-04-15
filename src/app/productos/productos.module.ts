@@ -17,6 +17,7 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { ProductorPageComponent } from './pages/productor-page/productor.page';
 import { ChatModule } from './components/chat/chat.module';
 import { ChatListPageComponent } from './pages/list-chat-page/list-chat-page.component';
+import { ChatProveedorModule } from './pages/list-chat-page/chatProveedor/chatProveedor.module';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ChatListPageComponent } from './pages/list-chat-page/list-chat-page.com
     ReactiveFormsModule,
     MatRadioGroup,
     MatRadioButton,
-    ChatModule
+    ChatModule,
+    ChatProveedorModule
   ]
 })
 export class ProductosModule { }

@@ -1,0 +1,55 @@
+.chat-container {
+  height: 150px; /* Ajusta la altura según sea necesario */
+  overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más largo que el contenedor */
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.sent {
+  background-color: #c1e2ff; /* Color de fondo para los mensajes enviados por el usuario actual */
+}
+
+.received {
+  background-color: #f0f0f0; /* Color de fondo para los mensajes recibidos del agricultor */
+}
+
+.input-container {
+  margin-top: 10px;
+}
+
+.input-container input {
+  width: calc(100% - 70px); /* Ajusta el ancho del input según sea necesario */
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-container button {
+  width: 60px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #0056b3;
+}
+
+.message-form {
+  display: flex; /* Hace que los elementos se muestren en línea */
+  align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.message-form input {
+  flex: 1; /* Hace que el input ocupe todo el espacio disponible */
+  margin-right: 8px; /* Espacio entre el input y el botón */
+}
+

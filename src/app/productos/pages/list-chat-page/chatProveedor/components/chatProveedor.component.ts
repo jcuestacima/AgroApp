@@ -1,44 +1,37 @@
-
 import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../../../auth/services/auth.service';
-import { Usuario } from '../../../../auth/interfaces/user.interface';
-import { ProductorPageComponent } from '../../../pages/productor-page/productor.page';
-import {  ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
+import { ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { environments } from '../../../../../environments/environmnets';
 import { Mensaje } from '../interfaces/mensaje.interface';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Usuario } from '../../../../../auth/interfaces/user.interface';
+import { environments } from '../../../../../../environments/environmnets';
+import { AuthService } from '../../../../../auth/services/auth.service';
+import { ChatListPageComponent } from '../../list-chat-page.component';
 
 @Component({
-  selector: 'app-chat',
-  templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  selector: 'app-chatProveedor',
+  templateUrl: './chatProveedor.component.html',
+  styleUrls: ['./chatProveedor.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatProveedorComponent implements OnInit {
   @ViewChild('chatContainer') chatContainer!: ElementRef;
+
   @Input() currentUser?: Usuario;
-  @Input() agricultor?: Usuario;
+  @Input() agricultor!: Usuario;
   messageText: string = '';
   messages: Mensaje[] = [];
   private baseUrl: string = environments.baseUrl;
-  private idComunicacion: string='';
+  private idComunicacion?: string;
 
-  constructor(private snackBar: MatSnackBar, private httpClient: HttpClient, private authService: AuthService, private productorPage: ProductorPageComponent) {}
+  constructor(private snackBar: MatSnackBar, private httpClient: HttpClient, private authService: AuthService, private chatList: ChatListPageComponent) {}
 
   ngOnInit() {
-    this.currentUser = this.authService.currentUser;
-    if (!this.currentUser) {
-      this.currentUser = { usuario: "Inicia sesión", contrasena:"",cuentaBanco:"",direccion:"",email:"",id:"",esAgricultor:false, telefono: 0};
-    }
+    this.idComunicacion = this.currentUser?.id ? this.agricultor?.id.concat(this.currentUser.id) : '';
 
-    this.agricultor = this.productorPage.thisProductor;
-
-    this.idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!);
-
-    if (this.currentUser.id) {
-      this.getMensajes(this.idComunicacion).subscribe(mensajes => {
+    if (this.currentUser?.id) {
+      this.getMensajes(this.idComunicacion!).subscribe(mensajes => {
         this.messages = mensajes;
       });
     }
@@ -47,9 +40,9 @@ export class ChatComponent implements OnInit {
   public chatForm = new FormGroup({
     contenido: new FormControl('', { nonNullable: true }),
     idCliente: new FormControl(this.currentUser?.id),
-    idProductor: new FormControl(this.productorPage.getIdProductorFromUrl()),
+    idProductor: new FormControl(this.agricultor?.id),
     emisor: new FormControl(this.currentUser),
-    idComunicacion: new FormControl(this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!)),
+    idComunicacion: new FormControl(this.currentUser?.id ? this.agricultor?.id.concat(this.currentUser.id) : ''),
   });
 
   ngAfterViewChecked() {
@@ -59,7 +52,7 @@ export class ChatComponent implements OnInit {
   scrollToBottom(): void {
     try {
       this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
-    } catch(err) { }
+    } catch (err) {}
   }
 
   sendMessage() {
@@ -67,16 +60,17 @@ export class ChatComponent implements OnInit {
       if (this.currentUser?.id) {
         const mensajeData = this.chatForm.value as unknown as Mensaje;
 
-        mensajeData.emisor = this.currentUser.usuario;
+        mensajeData.emisor = this.agricultor?.usuario!;
         mensajeData.idCliente = this.currentUser.id;
-        mensajeData.idComunicacion = this.productorPage.getIdProductorFromUrl().concat(this.currentUser?.id!)
+        mensajeData.idProductor = this.agricultor.id
+        mensajeData.idComunicacion = this.agricultor.id.concat(this.currentUser.id);
 
         this.addMensaje(mensajeData)
           .pipe(
             tap(() => {
               this.showSnackBar(`Mensaje enviado.`);
               // Después de enviar el mensaje, obtener los mensajes actualizados
-              this.getMensajes(this.idComunicacion).subscribe(mensajes => {
+              this.getMensajes(mensajeData.idComunicacion).subscribe(mensajes => {
                 this.messages = mensajes;
               });
             }),

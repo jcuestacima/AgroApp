@@ -7,17 +7,17 @@
   </button>
 </div>
 <div class="grid bm-8 pt-2">
-  <ng-container *ngFor="let emisor of emisoresUnicos">
+  <ng-container *ngFor="let cliente of clientes">
     <div style="flex: 1;">
       <mat-card style="height:fit-content;;">
         <mat-card-header>
           <mat-card-title>
-            <h1><strong>{{emisor}}</strong></h1>
+            <h1 ><strong>{{cliente.usuario}}</strong></h1>
           </mat-card-title>
         </mat-card-header>
-        <mat-divider></mat-divider>
+        <mat-divider style="margin-bottom: 5px;"></mat-divider>
         <mat-card-content>
-          chat
+          <app-chatProveedor [currentUser]="cliente" [agricultor]="currentUser" ></app-chatProveedor>
         </mat-card-content>
       </mat-card>
     </div>

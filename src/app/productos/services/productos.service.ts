@@ -48,13 +48,15 @@ export class ProductoService {
     return this.httpClient.patch<Producto>(`${this.baseUrl}/productos/${producto.id}`, producto);
   }
 
-  deleteByIdProducto(producto: Producto):Observable<boolean>{
-    debugger
-    return this.httpClient.delete(`${this.baseUrl}/listaProductos`)
-    .pipe(
-      catchError(error => of(false)),
-      map(resp =>true)
-    );
+  deleteByIdProducto(id: string): Observable<boolean> {
+    return this.httpClient.delete(`${this.baseUrl}/productos/${id}`)
+      .pipe(
+        map(resp => true),
+        catchError(error => {
+          console.error('Error al borrar el producto:', error);
+          return of(false);
+        })
+      );
   }
 
   get currentProducto():Producto| undefined{

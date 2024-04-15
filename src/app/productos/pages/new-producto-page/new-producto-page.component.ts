@@ -192,18 +192,17 @@ export class NewProductoPageComponent implements OnInit{
     console.log(this.previews);
   }
 
-
   upload(file: File): void {
-
     if (file) {
       this.uploadService.upload(file).subscribe(
         (event: any) => {
           if (event.type === HttpEventType.UploadProgress) {
-
+            // Handle upload progress if needed
           } else if (event instanceof HttpResponse) {
             const msg = 'Uploaded the file successfully: ' + file.name;
             this.message.push(msg);
-            this.imageInfos = this.uploadService.getFiles();
+            // No necesitas almacenar los datos de la imagen si solo quieres almacenarla localmente
+            // this.imageInfos = this.uploadService.getFiles();
           }
         },
         (err: any) => {
@@ -214,13 +213,5 @@ export class NewProductoPageComponent implements OnInit{
     }
   }
 
-  uploadFiles(): void {
-    this.message = [];
 
-    if (this.selectedFiles) {
-
-        this.upload(this.selectedFiles[0]);
-
-    }
-  }
 }

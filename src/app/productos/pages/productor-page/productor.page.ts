@@ -41,6 +41,10 @@ export class ProductorPageComponent implements OnInit{
     this.getProductosDelProductor(this.idProductor);
   }
 
+  get usuario():Usuario |undefined{
+    return this.authServic.currentUser;
+  }
+
   public resenaForm = new FormGroup({
     contenido:              new FormControl('', {nonNullable:true}),
     usuarioCliente:                   new FormControl(this.currentUser?.usuario),

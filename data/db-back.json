@@ -2,21 +2,23 @@
   "usuarios": [
     {
       "id": "P001",
-      "usuario": "John Doe",
+      "usuario": "inaki",
       "email": "john.due@gmail.com",
-      "contrasena": "contrasena",
+      "contrasena": "1",
       "direccion": "paseo del cisne",
       "esAgricultor": true,
-      "cuentaBanco": 798653217486
+      "cuentaBanco": 798653217486,
+      "telefono": 123456789
     },
     {
       "id": "P002",
       "usuario": "elorri",
       "email": "john.due@gmail.com",
-      "contrasena": "2",
+      "contrasena": "1",
       "direccion": "paseo del cisne",
       "esAgricultor": false,
-      "cuentaBanco": 798653217486
+      "cuentaBanco": 798653217486,
+      "telefono": 123456789
     },
     {
       "id": "P003",
@@ -25,7 +27,8 @@
       "contrasena": "1",
       "direccion": "paseo del cisne",
       "esAgricultor": true,
-      "cuentaBanco": 798653217486
+      "cuentaBanco": 798653217486,
+      "telefono": 123456789
     }
   ],
   "productos": [
@@ -44,7 +47,8 @@
       "precio": 0.3,
       "origen": "Canarias",
       "pesoAproximadoUnidad": "200 g"
-    },{
+    },
+    {
       "nombre": "Naranja",
       "id": "FR003",
       "idProductor": "P003",
@@ -195,6 +199,424 @@
       "precio": 0.6,
       "origen": "Pontevedra",
       "pesoAproximadoUnidad": "80 g"
+    }
+  ],
+  "resenas": [
+    {
+      "contenido": "asfdasfds",
+      "usuarioCliente": "Usuario desconocido",
+      "idProductor": "P001",
+      "id": 1
+    },
+    {
+      "contenido": "adfgdsfgs",
+      "usuarioCliente": "javi",
+      "idProductor": "P001",
+      "id": 2
+    },
+    {
+      "contenido": "ytulryuf,j,hj,f",
+      "usuarioCliente": "javi",
+      "idProductor": "P001",
+      "id": 3
+    },
+    {
+      "contenido": "No son de valencia, mentiroso",
+      "usuarioCliente": "Usuario desconocido",
+      "idProductor": "P003",
+      "id": 4
+    },
+    {
+      "contenido": "Si son de valencia",
+      "usuarioCliente": "elorri",
+      "idProductor": "P003",
+      "id": 5
+    },
+    {
+      "contenido": "aslfjasdfkdas",
+      "usuarioCliente": "elorri",
+      "idProductor": "P001",
+      "id": 6
+    },
+    {
+      "contenido": "no",
+      "usuarioCliente": "inaki",
+      "idProductor": "P003",
+      "id": 7
+    },
+    {
+      "contenido": "<dzvc< cx",
+      "usuarioCliente": "inaki",
+      "idProductor": "P003",
+      "id": 8
+    }
+  ],
+  "mensajes": [
+    {
+      "contenido": "primer mensaje",
+      "idProductor": "P002",
+      "idCliente": "P003",
+      "idComunicacion": "P002P003",
+      "emisor": "P003"
+    },
+    {
+      "contenido": "segundo mensaje",
+      "idProductor": "P002",
+      "idCliente": "P003",
+      "idComunicacion": "P002P003",
+      "emisor": "P002"
+    },
+    {
+      "contenido": "ya?",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "P003",
+      "idComunicacion": "P002P003",
+      "id": "CooFltj"
+    },
+    {
+      "contenido": "como vas",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "mWGs_Kh"
+    },
+    {
+      "contenido": "ey",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "NX0vTDl"
+    },
+    {
+      "contenido": "funciona aun esto?",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "dZkt27s"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "vCvKXgE"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "28KtIXf"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "I7sJyYG"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "qR2ggov"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "9k_AUdy"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "mar_erK"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "B5ZvfgE"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "Zuhw9EZ"
+    },
+    {
+      "contenido": "sdfgs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "NmpI3mJ"
+    },
+    {
+      "contenido": "quiero mis manzanas",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "elorri",
+      "idComunicacion": "P001P002",
+      "id": "pbrgvKQ"
+    },
+    {
+      "contenido": "mandalas ya pero",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "elorri",
+      "idComunicacion": "P001P002",
+      "id": "A_-VPHZ"
+    },
+    {
+      "contenido": "rapido",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "elorri",
+      "idComunicacion": "P001P002",
+      "id": "YfklmPw"
+    },
+    {
+      "contenido": "perro",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "wMSpPAZ"
+    },
+    {
+      "contenido": "eyjet",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "HDbRfQm"
+    },
+    {
+      "contenido": "eyjet",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "wLQ7jIF"
+    },
+    {
+      "contenido": "dfgdf",
+      "idCliente": "P001",
+      "idProductor": "P002",
+      "emisor": "inaki",
+      "idComunicacion": "P002P001",
+      "id": "kRiZ0Eb"
+    },
+    {
+      "contenido": "por fin",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "inaki",
+      "idComunicacion": "P001P002",
+      "id": "sDrMhjA"
+    },
+    {
+      "contenido": "asdfadsfasdef",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "inaki",
+      "idComunicacion": "P001P002",
+      "id": "VDi_WO1"
+    },
+    {
+      "contenido": "asdfdasf",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "inaki",
+      "idComunicacion": "P001P003",
+      "id": "swa1_xG"
+    },
+    {
+      "contenido": "dfasgr",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "NZRewql"
+    },
+    {
+      "contenido": "asdf",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "flZ39cl"
+    },
+    {
+      "contenido": "asfa",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "inaki",
+      "idComunicacion": "P001P003",
+      "id": "JGe3zHh"
+    },
+    {
+      "contenido": "stht",
+      "idCliente": "P002",
+      "idProductor": "P001",
+      "emisor": "inaki",
+      "idComunicacion": "P001P002",
+      "id": "dk4ftrd"
+    },
+    {
+      "contenido": "fafdas",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "5iASYgd"
+    },
+    {
+      "contenido": "zfb",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "efLP9ty"
+    },
+    {
+      "contenido": "<dsv<dvs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "a0XnaDg"
+    },
+    {
+      "contenido": "<dsv<dvs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "dzVg2qb"
+    },
+    {
+      "contenido": "<dsv<dvs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "nhoUqVz"
+    },
+    {
+      "contenido": "<dsv<dvs",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "javi",
+      "idComunicacion": "P001P003",
+      "id": "3zM0ZI4"
+    },
+    {
+      "contenido": "sfhbnsfh",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "QInTokw"
+    },
+    {
+      "contenido": "sdgbsd",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "Z6Y39GU"
+    },
+    {
+      "contenido": "hdff",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "SIalB0d"
+    },
+    {
+      "contenido": "sdgbsd",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "GyIIl1B"
+    },
+    {
+      "contenido": "hdff",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "5p3vsd_"
+    },
+    {
+      "contenido": "dgfhndgnbdadsfvaedfad",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "ATZ6loj"
+    },
+    {
+      "contenido": "hdff",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "3RNS1JH"
+    },
+    {
+      "contenido": "dgfhndgnbdadsfvaedfad",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "ZGj9KCu"
+    },
+    {
+      "contenido": "hdff",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "mb2vlRX"
+    },
+    {
+      "contenido": "dasfasdfadfs",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "inaki",
+      "idComunicacion": "P003P001",
+      "id": "9i-aM9a"
+    },
+    {
+      "contenido": "1",
+      "idCliente": "P001",
+      "idProductor": "P003",
+      "emisor": "javi",
+      "idComunicacion": "P003P001",
+      "id": "c7xEdAd"
     }
   ]
 }

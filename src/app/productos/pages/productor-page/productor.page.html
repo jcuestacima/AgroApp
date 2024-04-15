@@ -2,7 +2,7 @@
   <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px;" routerLink="/productos/listaProductos" routerLinkActive="router-link-active">
     Volver a la lista de productos
   </button>
-  <button mat-flat-button color="primary" style="margin-top: 10px; margin-bottom: 5px; margin-left: 10px;" routerLink="/productos/misChats" routerLinkActive="router-link-active">
+  <button mat-flat-button *ngIf="usuario?.esAgricultor && usuario?.id ===getIdProductorFromUrl()" color="primary" style="margin-top: 10px; margin-bottom: 5px; margin-left: 10px;" routerLink="/productos/misChats" routerLinkActive="router-link-active">
     Ver chats con mis clientes
   </button>
   <div style="display: flex;">
