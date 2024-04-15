@@ -7,8 +7,8 @@ import { ProductoService } from '../../services/productos.service';
 import { ListPageComponent } from '../list-page/list-page.component';
 import { JsonPipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FileUploadService } from '../../../shared/file-upload/file-upload.service';
 import { AuthService } from '../../../auth/services/auth.service';
+import { FileUploadService } from '../../../shared/file-upload/file-upload.service';
 
 @Component({
   selector: 'app-new-producto-page',
@@ -52,7 +52,6 @@ export class NewProductoPageComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.imageInfos = this.uploadService.getFiles();
     this.productosService.getProductos().subscribe({
       next: (productos: Producto[]) => {
         this.productosInfo = productos;
@@ -69,33 +68,29 @@ export class NewProductoPageComponent implements OnInit{
     const producto = this.productoForm.value as unknown as Producto;
     return producto;
   }
-  onSubmit(){
+  onSubmit(): void {
     if (this.productoForm.invalid) {
-      return
+      return;
     }
 
-    //TODO: primera condición del if inútil hay que arreglarlo
     if (this.currentProducto) {
-      this.productosService.updateProducto(this.currentFormProducto).subscribe(producto =>{
+      this.productosService.updateProducto(this.currentFormProducto).subscribe(() => {
         this.showSnackBar(`${this.productoForm.value.nombre} se editó!`);
-        })
-    }else{
+      });
+    } else {
       this.productoForm.value.id = this.generateProductoId();
       this.productoForm.value.idProductor = this.authService.currentUser?.id;
-      this.productosService.addProducto(this.currentFormProducto).subscribe(producto =>{
-      //todo mostrar snackbar y navegar a otra ventana
-      this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
 
-    })
+      this.productosService.addProducto(this.currentFormProducto).subscribe(() => {
+        // Guardar la imagen internamente en el proyecto
+        if (this.previews.length > 0) {
+          this.uploadService.saveImageInternally(this.previews[0], `${this.currentFormProducto.id}.jpg`);
+        }
+
+        this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
+      });
     }
-
-
-
-
-
-
   }
-
   showSnackBar(message: string): void{
     this.snackBar.open(message, 'Cerrar', {duration: 3000})
   }
@@ -174,44 +169,22 @@ export class NewProductoPageComponent implements OnInit{
     this.message = [];
     this.selectedFileNames = [];
     this.selectedFiles = event.target.files;
-
     this.previews = [];
+
     if (this.selectedFiles && this.selectedFiles.length > 0) {
       const firstFile = this.selectedFiles[0];
-
       const reader = new FileReader();
-      reader.onload = (e: any) => {
-        console.log(e.target.result);
-        this.previews.push(e.target.result);
-      };
-      reader.readAsDataURL(firstFile);
 
+      reader.onload = (e: any) => {
+        this.previews.push(e.target.result);
+        this.uploadService.saveImageInternally(e.target.result, firstFile.name);
+      };
+
+      reader.readAsDataURL(firstFile);
       this.selectedFileNames.push(firstFile.name);
     }
-
-    console.log(this.previews);
   }
 
-  upload(file: File): void {
-    if (file) {
-      this.uploadService.upload(file).subscribe(
-        (event: any) => {
-          if (event.type === HttpEventType.UploadProgress) {
-            // Handle upload progress if needed
-          } else if (event instanceof HttpResponse) {
-            const msg = 'Uploaded the file successfully: ' + file.name;
-            this.message.push(msg);
-            // No necesitas almacenar los datos de la imagen si solo quieres almacenarla localmente
-            // this.imageInfos = this.uploadService.getFiles();
-          }
-        },
-        (err: any) => {
-          const msg = 'Could not upload the file: ' + file.name;
-          this.message.push(msg);
-        }
-      );
-    }
-  }
 
 
 }

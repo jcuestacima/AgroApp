@@ -1,42 +1,74 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpRequest, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileUploadService {
-  private baseUrl = '../../../assets';
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  upload(file: File): Observable<boolean> {
-    const formData: FormData = new FormData();
+  saveImageInternally(imageData: string, imageName: string): void {
+    // Convertir la imagen base64 a Blob
+    const byteString = atob(imageData.split(',')[1]);
+    const mimeString = imageData.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
 
-    formData.append('file', file);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
 
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
-      reportProgress: true,
-      responseType: 'text' // Cambiamos el tipo de respuesta a 'text' ya que no esperamos un JSON
-    });
+    const blob = new Blob([ab], { type: mimeString });
 
-    return this.http.request(req).pipe(
-      map(event => {
-        if (event instanceof HttpResponse) {
-          console.log('File uploaded successfully:', file.name);
-          return true;
-        }
-        return false;
-      }),
-      catchError(error => {
-        console.error('Error uploading file:', error);
-        return of(false);
-      })
-    );
+    // Crear una URL para el Blob
+    const url = URL.createObjectURL(blob);
+
+    // Crear un elemento 'a' para descargar la imagen
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = imageName;
+
+    // Simular el clic en el enlace para descargar la imagen
+    // document.body.appendChild(a);
+    // a.click();
+
+    // Guardar la imagen en la ruta local del proyecto
+    const path = `assets/assetsFrutasYHortalizas/${imageName}`;
+    this.saveBlobToFile(blob, path);
+
+    // Liberar la URL del objeto Blob creado
+    URL.revokeObjectURL(url);
+
+    // Eliminar el elemento 'a' creado
+    // document.body.removeChild(a);
   }
 
+  private saveBlobToFile(blob: Blob, filePath: string): void {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const arrayBuffer = reader.result as ArrayBuffer;
+      const uint8Array = new Uint8Array(arrayBuffer);
+      const array = Array.from(uint8Array);
+      const blobToFile = new Blob([new Uint8Array(array)], { type: blob.type });
 
-  getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+      const url = URL.createObjectURL(blobToFile);
+
+      // Crear un elemento 'a' para descargar el archivo
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filePath.split('/').pop() || 'file';
+
+      // Simular el clic en el enlace para descargar el archivo
+      document.body.appendChild(a);
+      a.click();
+
+      // Eliminar el elemento 'a' creado
+      document.body.removeChild(a);
+
+      // Liberar la URL del objeto Blob creado
+      URL.revokeObjectURL(url);
+    };
+
+    reader.readAsArrayBuffer(blob);
   }
 }

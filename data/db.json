@@ -199,6 +199,25 @@
       "precio": 0.6,
       "origen": "Pontevedra",
       "pesoAproximadoUnidad": "80 g"
+    },
+    {
+      "nombre": "sdgfsd",
+      "id": "FR023",
+      "idProductor": "P003",
+      "precio": 0,
+      "origen": "sdfgsdf",
+      "pesoAproximadoUnidad": 0,
+      "esFRoHO": "FR",
+      "alt_img": "C:\\fakepath\\prueba.png"
+    },
+    {
+      "nombre": "aadsf",
+      "id": "FR024",
+      "precio": 0,
+      "origen": "adfds",
+      "pesoAproximadoUnidad": 0,
+      "esFRoHO": "FR",
+      "alt_img": "C:\\fakepath\\prueba.png"
     }
   ],
   "resenas": [
@@ -617,6 +636,30 @@
       "emisor": "javi",
       "idComunicacion": "P003P001",
       "id": "c7xEdAd"
+    },
+    {
+      "contenido": "elorri",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "WCSU9oI"
+    },
+    {
+      "contenido": "elorri",
+      "idCliente": "P003",
+      "idProductor": "P002",
+      "emisor": "javi",
+      "idComunicacion": "P002P003",
+      "id": "otyKJOU"
+    },
+    {
+      "contenido": "hñl",
+      "idCliente": "P003",
+      "idProductor": "P001",
+      "emisor": "inaki",
+      "idComunicacion": "P001P003",
+      "id": "KEHquk9"
     }
   ]
 }
