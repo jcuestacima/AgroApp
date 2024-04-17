@@ -7,7 +7,7 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { Resena } from '../../interfaces/resena.interface';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environments } from '../../../../environments/environmnets';
+import { environments } from '../../../../environments/environments';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

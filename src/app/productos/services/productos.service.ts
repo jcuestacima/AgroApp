@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of } from 'rxjs';
 import { Producto } from '../interfaces/productos.interface';
-import { environments } from '../../../environments/environmnets';
+import { environments } from '../../../environments/environments';
 import { Resena } from '../interfaces/resena.interface';
 import { ChatComponent } from '../components/chat/components/chat.component';
 import { Mensaje } from '../components/chat/interfaces/mensaje.interface';

@@ -201,20 +201,11 @@
       "pesoAproximadoUnidad": "80 g"
     },
     {
-      "nombre": "sdgfsd",
+      "nombre": "asdf",
       "id": "FR023",
       "idProductor": "P003",
       "precio": 0,
-      "origen": "sdfgsdf",
-      "pesoAproximadoUnidad": 0,
-      "esFRoHO": "FR",
-      "alt_img": "C:\\fakepath\\prueba.png"
-    },
-    {
-      "nombre": "aadsf",
-      "id": "FR024",
-      "precio": 0,
-      "origen": "adfds",
+      "origen": "asdf",
       "pesoAproximadoUnidad": 0,
       "esFRoHO": "FR",
       "alt_img": "C:\\fakepath\\prueba.png"

@@ -1,7 +1,7 @@
 
 
 <div class="chat-container" #chatContainer>
-  <div *ngFor="let message of messages" class="message" [ngClass]="{ 'sent': message.emisor === currentUser!.usuario, 'received': message.emisor === agricultor?.usuario}">
+  <div *ngFor="let message of messages" class="message" [ngClass]="{ 'sent': message.emisor === currentUser!.usuario, 'received': message.emisor === agricultor.usuario}">
     <strong>{{ message.emisor }}:</strong> {{ message.contenido }}
   </div>
 </div>

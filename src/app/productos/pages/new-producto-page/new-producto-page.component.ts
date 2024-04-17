@@ -84,7 +84,7 @@ export class NewProductoPageComponent implements OnInit{
       this.productosService.addProducto(this.currentFormProducto).subscribe(() => {
         // Guardar la imagen internamente en el proyecto
         if (this.previews.length > 0) {
-          this.uploadService.saveImageInternally(this.previews[0], `${this.currentFormProducto.id}.jpg`);
+          this.uploadService.saveImageInternally(this.previews[0], `../${this.currentFormProducto.id}.jpg`);
         }
 
         this.showSnackBar(`${this.productoForm.value.nombre} se añadió!`);
@@ -177,7 +177,7 @@ export class NewProductoPageComponent implements OnInit{
 
       reader.onload = (e: any) => {
         this.previews.push(e.target.result);
-        this.uploadService.saveImageInternally(e.target.result, firstFile.name);
+        // this.uploadService.saveImageInternally(e.target.result, firstFile.name);
       };
 
       reader.readAsDataURL(firstFile);

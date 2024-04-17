@@ -8,7 +8,7 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { Mensaje } from '../../components/chat/interfaces/mensaje.interface';
 import { Observable, forkJoin, map, of, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environments } from '../../../../environments/environmnets';
+import { environments } from '../../../../environments/environments';
 import { Usuario } from '../../../auth/interfaces/user.interface';
 
 @Component({

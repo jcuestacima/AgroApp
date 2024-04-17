@@ -6,7 +6,7 @@ import { ProductorPageComponent } from '../../../pages/productor-page/productor.
 import {  ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { environments } from '../../../../../environments/environmnets';
+import { environments } from '../../../../../environments/environments';
 import { Mensaje } from '../interfaces/mensaje.interface';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';

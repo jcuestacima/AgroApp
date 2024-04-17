@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environments } from '../../../environments/environmnets';
+import { environments } from '../../../environments/environments';
 import { Usuario } from '../interfaces/user.interface';
 import { Observable, catchError, filter, map, of, tap } from 'rxjs';
 import { Router } from '@angular/router';

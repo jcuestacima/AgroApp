@@ -6,7 +6,7 @@ import { Mensaje } from '../interfaces/mensaje.interface';
 import { Observable, catchError, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Usuario } from '../../../../../auth/interfaces/user.interface';
-import { environments } from '../../../../../../environments/environmnets';
+import { environments } from '../../../../../../environments/environments';
 import { AuthService } from '../../../../../auth/services/auth.service';
 import { ChatListPageComponent } from '../../list-chat-page.component';
 
