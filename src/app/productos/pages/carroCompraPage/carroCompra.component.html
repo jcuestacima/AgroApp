@@ -1,1 +1,13 @@
-<p>Carrito de compra</p>
+<h1 style="margin-top: 15px;"><strong style="font-size: xx-large;">Carrito de la compra</strong></h1>
+
+<div class="col-12 sm:col-12 md:col-12 xl:col-12" style="display: flex;">
+  <div class="grid bm-8 pt-2 col-8 sm:col-8 md:col-8 xl:col-8">
+    <div *ngFor="let carritoProducto of carritoProductos" style="margin-top: 20px;" class="col-12 sm:col-12 md:col-12 xl:col-12">
+      <carrito-producto-card [productoCarrito]="carritoProducto"></carrito-producto-card>
+    </div>
+  </div>
+
+  <h2 style="margin-left: 20px;"> TOTAL DEL CARRITO:   {{getTotalCarrito()}}€</h2>
+</div>
+
+

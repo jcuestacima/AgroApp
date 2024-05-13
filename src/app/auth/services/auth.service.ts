@@ -12,7 +12,12 @@ export class AuthService{
   private usuario?: Usuario;
   private usuariosInfo: Usuario[]=[];
   private productor?: Usuario;
-  constructor(private httpClient: HttpClient, private router: Router,) { }
+  constructor(private httpClient: HttpClient, private router: Router,) {
+    const storedUsuario = localStorage.getItem('usuario');
+    if (storedUsuario) {
+      this.usuario = JSON.parse(storedUsuario);
+    }
+  }
 
   get currentUser():Usuario| undefined{
     if (!this.usuario) {
@@ -24,7 +29,8 @@ export class AuthService{
 
   logout(){
     this.usuario = undefined;
-    localStorage.clear;
+    localStorage.removeItem('usuario');
+    this.router.navigate(['/login']);
   }
 
   login(usuario: string, contrasena: string){
@@ -35,6 +41,7 @@ export class AuthService{
                 if (usuarioEncontrado) {
                     // Usuario y contraseña válidos, redirige al usuario a la página principal
                     this.usuario = usuarioEncontrado;
+                    localStorage.setItem('usuario', JSON.stringify(this.usuario));
                     this.router.navigate(['/']);
                 } else {
                     // Usuario o contraseña incorrectos, muestra un mensaje de error

@@ -6,7 +6,7 @@ export interface Producto {
   idProductor:          string;
   precio:               number;
   origen:               string;
-  pesoAproximadoUnidad: string;
+  pesoAproximadoUnidad: number;
   esFRoHO?: EsFRoHO;
   alt_img?: string;
 }

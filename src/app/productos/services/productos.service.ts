@@ -7,6 +7,7 @@ import { Resena } from '../interfaces/resena.interface';
 import { ChatComponent } from '../components/chat/components/chat.component';
 import { Mensaje } from '../components/chat/interfaces/mensaje.interface';
 import { AuthService } from '../../auth/services/auth.service';
+import { ProductoCarrito } from '../interfaces/productoCarrito.interface';
 
 @Injectable({providedIn: 'root'})
 export class ProductoService {
@@ -18,6 +19,10 @@ export class ProductoService {
 
   getProductos():Observable<Producto[]>{
     return this.httpClient.get<Producto[]>(`${this.baseUrl}/productos`);
+  }
+
+  getProductosCarritoIdUser():Observable<ProductoCarrito[]>{
+    return this.httpClient.get<ProductoCarrito[]>(`${this.baseUrl}/anadidosCarrito?q=${this.authService.currentUser?.id}`);
   }
 
   getResenas():Observable<Resena[]>{
@@ -59,10 +64,26 @@ export class ProductoService {
       );
   }
 
+  deleteByIdProductoCarrito(id: string): Observable<boolean> {
+    return this.httpClient.delete(`${this.baseUrl}/anadidosCarrito/${id}`)
+      .pipe(
+        map(resp => true),
+        catchError(error => {
+          console.error('Error al borrar el producto:', error);
+          return of(false);
+        })
+      );
+  }
+
   get currentProducto():Producto| undefined{
     if (!this.producto) {
       return undefined;
     }
     return structuredClone( this.producto);
   }
+
+  anadirAlCarrito(ProductoCarrito: ProductoCarrito):Observable<ProductoCarrito>{
+    return this.httpClient.post<ProductoCarrito>(`${this.baseUrl}/anadidosCarrito`, ProductoCarrito);
+  }
+
 }

@@ -12,12 +12,14 @@ import { MaterialModule } from '../material/material.module';
 import { CardComponent } from './components/card/card.component';
 import { CarroCompraComponent } from './pages/carroCompraPage/carroCompra.component';
 import { ProductoImagePipe } from './pipes/producto-image.pipe';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { ProductorPageComponent } from './pages/productor-page/productor.page';
 import { ChatModule } from './components/chat/chat.module';
 import { ChatListPageComponent } from './pages/list-chat-page/list-chat-page.component';
 import { ChatProveedorModule } from './pages/list-chat-page/chatProveedor/chatProveedor.module';
+import { CarritoCardComponent } from './components/card-carrito/carritoCard.component';
+import { ProductoCarritoImagePipe } from './pipes/productoCarrito-image.pipe';
 
 
 @NgModule({
@@ -28,8 +30,10 @@ import { ChatProveedorModule } from './pages/list-chat-page/chatProveedor/chatPr
     NewProductoPageComponent,
     SearchProductoPageComponent,
     CardComponent,
+    CarritoCardComponent,
     CarroCompraComponent,
     ProductoImagePipe,
+    ProductoCarritoImagePipe,
     ProductorPageComponent,
     ChatListPageComponent
 
@@ -42,7 +46,10 @@ import { ChatProveedorModule } from './pages/list-chat-page/chatProveedor/chatPr
     MatRadioGroup,
     MatRadioButton,
     ChatModule,
-    ChatProveedorModule
+    ChatProveedorModule,
+    FormsModule
+  ],exports:[
+    CardComponent
   ]
 })
 export class ProductosModule { }

@@ -12,7 +12,7 @@
   <mat-divider></mat-divider>
 
   <mat-card-content class="mt-2">
-    <h4><strong>Peso unitario: </strong>{{producto.pesoAproximadoUnidad}}</h4>
+    <h4><strong>Peso unitario: </strong>{{producto.pesoAproximadoUnidad}} gramos</h4>
     <h4><strong>Precio: </strong>{{producto.precio}} € el KG</h4>
     <button style="margin-bottom: 15px;" class="col-12" mat-flat-button color="accent" (click)="irPaginaProductor()">Productor: {{producto.idProductor}}</button>
 
@@ -24,12 +24,12 @@
   <mat-divider></mat-divider>
 
   <mat-card-actions class="pt-2">
-    <button mat-button mat-raised color="primary" class="pr-5">
+    <button mat-button mat-raised color="primary" class="pr-5" (click)="anadirProductoCarrito(producto)">
       <mat-icon>add</mat-icon>
       al carrito
     </button>
     <mat-label class="pr-2"><strong>Unidades:</strong> </mat-label>
-      <input matInput #number maxlength="2" placeholder="1" value="1" size="5px">
+    <input matInput #number maxlength="2" placeholder="1" value="1" size="5px" [(ngModel)]="unidades">
   </mat-card-actions>
 
   <mat-divider></mat-divider>
