@@ -10,6 +10,7 @@ import { LoginPageComponent } from '../auth/pages/login-page/login-page.componen
 import { ProductorPageComponent } from './pages/productor-page/productor.page';
 import { ChatListPageComponent } from './pages/list-chat-page/list-chat-page.component';
 import { NewProductoPageComponent } from './pages/new-producto-page/new-producto-page.component';
+import { UpdateProductoPageComponent } from './pages/update-producto-page/update-producto-page.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     component: LayoutPageComponent,
     children: [
       {path:'nuevoProducto',component: NewProductoPageComponent},
+      { path:'editarProducto/:id', component: UpdateProductoPageComponent },
       {path:'editarProducto/:id',component: NewProductoPageComponent},
       {path:'listaProductos',component: ListPageComponent},
       {path:'buscarProducto', component: SearchProductoPageComponent},

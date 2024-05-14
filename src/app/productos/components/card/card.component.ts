@@ -93,8 +93,8 @@ export class CardComponent implements OnInit{
   }
 
 
-  // actualizarProducto(){
-  //   this.router.navigate([`/productos/nuevoProducto`]);
-  // }
+  irPaginaActualizarProducto(productoId: string): void {
+    this.router.navigate([`productos/editarProducto/${productoId}`]);
+  }
 
 }

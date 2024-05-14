@@ -20,6 +20,7 @@ import { ChatListPageComponent } from './pages/list-chat-page/list-chat-page.com
 import { ChatProveedorModule } from './pages/list-chat-page/chatProveedor/chatProveedor.module';
 import { CarritoCardComponent } from './components/card-carrito/carritoCard.component';
 import { ProductoCarritoImagePipe } from './pipes/productoCarrito-image.pipe';
+import { UpdateProductoPageComponent } from './pages/update-producto-page/update-producto-page.component';
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { ProductoCarritoImagePipe } from './pipes/productoCarrito-image.pipe';
     ProductoImagePipe,
     ProductoCarritoImagePipe,
     ProductorPageComponent,
-    ChatListPageComponent
+    ChatListPageComponent,
+    UpdateProductoPageComponent
+
 
   ],
   imports: [

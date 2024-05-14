@@ -21,6 +21,10 @@ export class ProductoService {
     return this.httpClient.get<Producto[]>(`${this.baseUrl}/productos`);
   }
 
+  getProductoById(idProducto: string): Observable<Producto>{
+    return this.httpClient.get<Producto>(`${this.baseUrl}/productos/${idProducto}`);
+  }
+
   getProductosCarritoIdUser():Observable<ProductoCarrito[]>{
     return this.httpClient.get<ProductoCarrito[]>(`${this.baseUrl}/anadidosCarrito?q=${this.authService.currentUser?.id}`);
   }

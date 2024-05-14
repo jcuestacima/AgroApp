@@ -57,12 +57,12 @@ export class CarritoCardComponent implements OnInit{
 
   }
 
-  calcularTotalProducto(): number{
-
-    this.total = (this.productoCarrito.pesoAproximadoUnidad/1000)*this.productoCarrito.precio*this.productoCarrito.cantidad
-
-    return this.total;
-  }
+  calcularTotalProducto(): string {
+    this.total = (this.productoCarrito.pesoAproximadoUnidad / 1000) * this.productoCarrito.precio * this.productoCarrito.cantidad;
+    // Formatear el número para que solo tenga dos decimales y cambiar el punto por una coma
+    const totalFormateado = this.total.toFixed(2).replace('.', ',');
+    return totalFormateado;
+}
 
   showSnackBar(message: string): void{
     this.snackBar.open(message, 'Cerrar', {duration: 3000})

@@ -63,7 +63,6 @@
             <div>
               <mat-toolbar>
                 <mat-label>Seleccione una foto de su producto</mat-label>
-                <!-- Imposible de realizar porque el navegador no tiene acceso directo al sistema de archivos del usuario por razones de seguridad -->
                 <input matInput required/>
 
 
@@ -74,7 +73,6 @@
                   id="fileInput"
                   name="fileInput"
                   accept="image/*"
-                  (change)="selectFiles($event)"
                   formControlName="alt_img"
                />
             </div>
@@ -84,7 +82,7 @@
           <div>
             <strong>Previsualización de la foto:</strong>
             <hr>
-            <img style="margin-left: 45%;" height="300px" width="300px" *ngFor='let preview of previews' [src]="preview" class="preview">
+            <img style="margin-left: 45%;" height="300px" width="300px">
           </div>
 
 

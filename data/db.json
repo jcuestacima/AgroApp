@@ -38,7 +38,8 @@
       "idProductor": "P001",
       "precio": 0.5,
       "origen": "Cataluña",
-      "pesoAproximadoUnidad": 150
+      "pesoAproximadoUnidad": 150,
+      "esFRoHO": "FR"
     },
     {
       "nombre": "Plátano",
@@ -54,7 +55,8 @@
       "idProductor": "P003",
       "precio": 0.3,
       "origen": "Valencia",
-      "pesoAproximadoUnidad": 200
+      "pesoAproximadoUnidad": 150,
+      "esFRoHO": "FR"
     },
     {
       "nombre": "Uva",
@@ -118,7 +120,8 @@
       "idProductor": "P001",
       "precio": 0.6,
       "origen": "Murcia",
-      "pesoAproximadoUnidad": 100
+      "pesoAproximadoUnidad": 100,
+      "esFRoHO": "FR"
     },
     {
       "nombre": "Zanahoria",
@@ -199,6 +202,16 @@
       "precio": 0.6,
       "origen": "Pontevedra",
       "pesoAproximadoUnidad": 80
+    },
+    {
+      "nombre": "fadsf",
+      "id": "FR023",
+      "idProductor": "P003",
+      "precio": 256,
+      "origen": "dasfas",
+      "pesoAproximadoUnidad": 4536,
+      "esFRoHO": "FR",
+      "alt_img": "C:\\fakepath\\fresa.webp"
     }
   ],
   "resenas": [
@@ -663,16 +676,6 @@
       "idImagen": "FR006",
       "origen": "Huelva",
       "id": 3
-    },
-    {
-      "nombre": "Peras",
-      "pesoAproximadoUnidad": 160,
-      "precio": 0.45,
-      "idCliente": "P003",
-      "cantidad": "7",
-      "idImagen": "FR005",
-      "origen": "Aragón",
-      "id": 4
     },
     {
       "nombre": "Manzana",
