@@ -32,18 +32,14 @@ export class UpdateProductoPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const productoId = params['id']; // Obtener el ID del producto de los parámetros de la ruta
+      const productoId = params['id'];
       if (productoId) {
         this.productosService.getProductoById(productoId).subscribe(producto => {
           if (producto) {
             this.currentProducto = producto;
             this.fillFormWithProductoDetails(this.currentProducto);
-          } else {
-            // Manejar el caso donde el producto no se encuentra
           }
         });
-      } else {
-        // Manejar el caso donde no se proporciona un ID de producto
       }
     });
   }

@@ -20,7 +20,7 @@ export class CarroCompraComponent {
     this.carritoProductos.forEach(carritoProducto => {
       totalCarrito += (carritoProducto.pesoAproximadoUnidad / 1000) * carritoProducto.precio * carritoProducto.cantidad;
     });
-    return totalCarrito.toFixed(2).replace('.', ','); // Limitar a dos decimales y reemplazar punto por coma
+    return totalCarrito.toFixed(2).replace('.', ',');
   }
 
 

@@ -20,11 +20,6 @@
   </mat-form-field>
 
   <mat-form-field class="col-12">
-    <mat-label>Confirmar contraseña</mat-label>
-    <input class="col-12" type="password" matInput placeholder="Repita la contraseña" required>
-  </mat-form-field>
-
-  <mat-form-field class="col-12">
     <mat-label>Número de teléfono</mat-label>
     <input formControlName="telefono" class="col-12" type="text" matInput placeholder="Escriba su número de teléfono" required>
   </mat-form-field>
@@ -44,11 +39,6 @@
   <mat-form-field *ngIf="showBankAccountInput" class="col-12">
     <mat-label>Número de cuenta bancaria</mat-label>
     <input formControlName="cuentaBanco" class="col-12" type="text" matInput placeholder="Escriba su número de cuenta bancaria">
-  </mat-form-field>
-
-  <mat-form-field *ngIf="showBankAccountInput" class="col-12">
-    <mat-label>Confirmar cuenta bancaria</mat-label>
-    <input class="col-12" type="text" matInput placeholder="Reescriba su número de cuenta bancaria">
   </mat-form-field>
 
   <button class="col-12" mat-button mat-flat-button color="accent" (click)="onSubmit()">

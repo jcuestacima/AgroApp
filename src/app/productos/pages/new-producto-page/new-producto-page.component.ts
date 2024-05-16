@@ -28,7 +28,6 @@ export class NewProductoPageComponent implements OnInit{
   productosInfo: Producto[]=[];
   currentProducto?: Producto = this.productosService.currentProducto;
 
-  //NO EDITABLE
   public productoForm = new FormGroup({
     nombre:              new FormControl('', {nonNullable:true}),
     id:                   new FormControl(''),
@@ -55,7 +54,7 @@ export class NewProductoPageComponent implements OnInit{
     this.productosService.getProductos().subscribe({
       next: (productos: Producto[]) => {
         this.productosInfo = productos;
-        // Puedes realizar cualquier acción adicional aquí, si es necesario
+
       },
       error: (error: any) => {
         console.error('Error al obtener productos:', error);
@@ -70,6 +69,16 @@ export class NewProductoPageComponent implements OnInit{
   }
   onSubmit(): void {
     if (this.productoForm.invalid) {
+      return;
+    }
+
+    if (this.currentFormProducto.precio == 0) {
+      this.showSnackBar(`${this.productoForm.value.nombre} debe tener un precio superior a 0!`);
+      return;
+    }
+
+    if (this.currentFormProducto.pesoAproximadoUnidad == 0) {
+      this.showSnackBar(`${this.productoForm.value.nombre} debe tener un pesp superior a 0!`);
       return;
     }
 
@@ -116,18 +125,16 @@ export class NewProductoPageComponent implements OnInit{
       console.log("IDs que empiezan por HO y tienen 5 caracteres:", todoIdHo);
 
       if (this.productoForm.get('esFRoHO') && this.productoForm.get('esFRoHO')!.value === "FR") {
-        // Verificamos si todoIdFr no está vacío antes de acceder al último elemento
         if (todoIdFr.length > 0) {
-          // Obtenemos el último elemento de todoIdFr
           const ultimoElemento = todoIdFr[todoIdFr.length - 1];
-          // Extraemos los últimos 3 caracteres
+
           const ultimosTresCaracteres = ultimoElemento.substring(ultimoElemento.length - 3);
-          // Convertimos los últimos 3 caracteres a números y sumamos 1
+
           const ultimoNumero = parseInt(ultimosTresCaracteres, 10) + 1;
-          // Concatenamos "FR" con el último número obtenido
+
           numeroDeId = ultimoNumero.toString().padStart(3, '0');
         } else {
-          // Si todoIdFr está vacío, establecemos numeroDeId como "001"
+
           numeroDeId = "001";
         }
         principioDelId = "FR";
@@ -138,18 +145,18 @@ export class NewProductoPageComponent implements OnInit{
       if (this.productoForm.get('esFRoHO') && this.productoForm.get('esFRoHO')!.value === "HO") {
 
         console.log("Entra")
-        // Verificamos si todoIdHo no está vacío antes de acceder al último elemento
+
         if (todoIdHo.length > 0) {
-          // Obtenemos el último elemento de todoIdHo
+
           const ultimoElemento = todoIdHo[todoIdHo.length - 1];
-          // Extraemos los últimos 3 caracteres
+
           const ultimosTresCaracteres = ultimoElemento.substring(ultimoElemento.length - 3);
-          // Convertimos los últimos 3 caracteres a números y sumamos 1
+
           const ultimoNumero = parseInt(ultimosTresCaracteres, 10) + 1;
-          // Concatenamos "HO" con el último número obtenido
+
           numeroDeId = ultimoNumero.toString().padStart(3, '0');
         } else {
-          // Si todoIdFr está vacío, establecemos numeroDeId como "001"
+
           numeroDeId = "001";
         }
         principioDelId = "HO";

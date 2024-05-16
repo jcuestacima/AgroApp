@@ -42,10 +42,10 @@ export class ChatListPageComponent implements OnInit{
         this.mensajes = mensajes;
         this.emisoresUnicos = this.obtenerEmisoresUnicos();
 
-        // Ahora usaremos forkJoin para esperar a que todas las solicitudes HTTP se completen
+
         forkJoin(this.emisoresUnicos.map(emisor => this.getUsuarioPorUsuario(emisor)))
           .subscribe(clientes => {
-            // Filtramos los valores nulos y asignamos el resultado a this.clientes
+
             this.clientes = clientes.filter(cliente => cliente !== null) as Usuario[];
           });
       }, error => {
@@ -86,7 +86,7 @@ export class ChatListPageComponent implements OnInit{
     return forkJoin(nombresUsuarios.map(nombreUsuario => this.getUsuarioPorUsuario(nombreUsuario)))
       .pipe(
         switchMap(clientes => {
-          // Filtramos los valores nulos y devolvemos el resultado como un Observable de Usuario[]
+
           const usuarios: Usuario[] = clientes.filter(cliente => cliente !== null) as Usuario[];
           return of(usuarios);
         })

@@ -28,7 +28,7 @@ export class ProductorPageComponent implements OnInit{
 
   ngOnInit() {
     this.currentUser = this.authServic.currentUser;
-    // Obtenemos el ID del productor de la URL actual
+
     this.idProductor = this.getIdProductorFromUrl();
 
     this.authServic.searchProductorById(this.idProductor).subscribe(productor => {
@@ -37,7 +37,7 @@ export class ProductorPageComponent implements OnInit{
 
     this.getResenasDelProductor(this.idProductor);
 
-    // Llamamos al método que busca todos los productos del productor
+
     this.getProductosDelProductor(this.idProductor);
   }
 
@@ -52,11 +52,7 @@ export class ProductorPageComponent implements OnInit{
   });
 
   getIdProductorFromUrl(): string {
-    // Obtenemos la URL actual
     const currentUrl = this.router.url;
-
-    // Extraemos el ID del productor de la URL
-    // Supongamos que el ID del productor está al final de la URL después de la última /
     const parts = currentUrl.split('/');
     const idProductor = parts[parts.length - 1];
 
@@ -65,7 +61,6 @@ export class ProductorPageComponent implements OnInit{
 
   getProductosDelProductor(idProductor: string) {
     this.productosService.getProductos().subscribe(productos => {
-      // Filtramos los productos por el ID del productor
       this.productosDelProductor = productos.filter(producto => producto.idProductor === idProductor);
     });
   }
@@ -73,7 +68,6 @@ export class ProductorPageComponent implements OnInit{
 
   getResenasDelProductor(idProductor: string) {
     this.productosService.getResenas().subscribe(resenas => {
-      // Filtramos los productos por el ID del productor
       this.resenasDelProductor = resenas.filter(resena => resena.idProductor === idProductor);
     });
   }
@@ -81,7 +75,7 @@ export class ProductorPageComponent implements OnInit{
   submitResena() {
 
     if (this.currentUser?.id) {
-      const resenaData = this.resenaForm.value; // Obtener los valores del formulario
+      const resenaData = this.resenaForm.value;
       const resena: Resena = {
       contenido: resenaData.contenido || "Se han perdido los datos de la reseña",
       usuarioCliente: this.currentUser?.usuario ||"Usuario desconocido",

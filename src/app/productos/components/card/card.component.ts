@@ -56,13 +56,13 @@ export class CardComponent implements OnInit{
     this.productoService.deleteByIdProducto(this.producto.id).subscribe(
       () => {
         alert('Producto borrado exitosamente.');
-        // Aquí podrías realizar cualquier acción adicional después de borrar el producto, como actualizar la lista de productos, mostrar un mensaje de éxito, etc.
+
         window.location.reload();
       },
       (error) => {
         console.error('Error al borrar el producto:', error);
         alert('Error al borrar el producto.');
-        // Manejar cualquier error que ocurra durante la solicitud HTTP
+
       }
     );
   }
@@ -74,12 +74,12 @@ export class CardComponent implements OnInit{
     this.nuevoProductoCarrito!.precio = producto.precio;
     this.nuevoProductoCarrito!.origen = producto.origen;
     this.nuevoProductoCarrito!.idCliente = this.usuario!.id;
-    this.nuevoProductoCarrito!.cantidad = this.unidades; // Aquí asignamos la cantidad de unidades recogida del input
+    this.nuevoProductoCarrito!.cantidad = this.unidades;
 
     this.productoService.anadirAlCarrito(this.nuevoProductoCarrito!).subscribe(
       () => {
         this.showSnackBar('Producto añadido exitosamente al carrito.');
-        // Aquí podrías realizar cualquier acción adicional después de borrar el producto, como actualizar la lista de productos, mostrar un mensaje de éxito, etc.
+
 
       },
       (error) => {

@@ -29,6 +29,26 @@
       "esAgricultor": true,
       "cuentaBanco": 798653217486,
       "telefono": 123456789
+    },
+    {
+      "usuario": "rado",
+      "contrasena": "1",
+      "id": "P004",
+      "email": "rado@dasf.cm",
+      "direccion": "afddasdfasfa",
+      "esAgricultor": false,
+      "cuentaBanco": "",
+      "telefono": "123456789"
+    },
+    {
+      "usuario": "kh",
+      "contrasena": "1",
+      "id": "P005",
+      "email": "kh@daf.cd",
+      "direccion": "asdfasdfa",
+      "esAgricultor": false,
+      "cuentaBanco": "",
+      "telefono": "123456789"
     }
   ],
   "productos": [
@@ -53,7 +73,7 @@
       "nombre": "Naranja",
       "id": "FR003",
       "idProductor": "P003",
-      "precio": 0.3,
+      "precio": 0.4,
       "origen": "Valencia",
       "pesoAproximadoUnidad": 150,
       "esFRoHO": "FR"
@@ -202,16 +222,6 @@
       "precio": 0.6,
       "origen": "Pontevedra",
       "pesoAproximadoUnidad": 80
-    },
-    {
-      "nombre": "fadsf",
-      "id": "FR023",
-      "idProductor": "P003",
-      "precio": 256,
-      "origen": "dasfas",
-      "pesoAproximadoUnidad": 4536,
-      "esFRoHO": "FR",
-      "alt_img": "C:\\fakepath\\fresa.webp"
     }
   ],
   "resenas": [
@@ -654,19 +664,25 @@
       "emisor": "inaki",
       "idComunicacion": "P001P003",
       "id": "KEHquk9"
+    },
+    {
+      "contenido": "puedes hacer envío de dos productos a la vez?",
+      "idCliente": "P004",
+      "idProductor": "P001",
+      "emisor": "rado",
+      "idComunicacion": "P001P004",
+      "id": "Wm7Suhc"
+    },
+    {
+      "contenido": "tienes aguacates?",
+      "idCliente": "P005",
+      "idProductor": "P001",
+      "emisor": "kh",
+      "idComunicacion": "P001P005",
+      "id": "B5CwfZ1"
     }
   ],
   "anadidosCarrito": [
-    {
-      "nombre": "Plátano",
-      "pesoAproximadoUnidad": 200,
-      "precio": 0.3,
-      "idCliente": "P003",
-      "cantidad": "4",
-      "idImagen": "FR002",
-      "origen": "Canarias",
-      "id": 2
-    },
     {
       "nombre": "Fresa",
       "pesoAproximadoUnidad": 100,
@@ -686,6 +702,16 @@
       "idImagen": "FR001",
       "origen": "Cataluña",
       "id": 5
+    },
+    {
+      "nombre": "Plátano",
+      "pesoAproximadoUnidad": 200,
+      "precio": 0.3,
+      "idCliente": "P003",
+      "cantidad": "20",
+      "idImagen": "FR002",
+      "origen": "Canarias",
+      "id": 6
     }
   ]
 }

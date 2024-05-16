@@ -69,7 +69,7 @@ export class ChatProveedorComponent implements OnInit {
           .pipe(
             tap(() => {
               this.showSnackBar(`Mensaje enviado.`);
-              // Después de enviar el mensaje, obtener los mensajes actualizados
+
               this.getMensajes(mensajeData.idComunicacion).subscribe(mensajes => {
                 this.messages = mensajes;
               });
@@ -77,10 +77,10 @@ export class ChatProveedorComponent implements OnInit {
             catchError((error) => {
               console.error('Error al enviar el mensaje:', error);
               this.showSnackBar('Error al enviar el mensaje. Inténtalo de nuevo más tarde.');
-              throw error; // Re-emitir el error para que el controlador de errores superior pueda manejarlo
+              throw error;
             })
           )
-          .subscribe(); // Suscripción necesaria para activar la cadena de operadores
+          .subscribe();
       } else {
         alert("Inicia sesión para enviar mensajes");
       }

@@ -65,7 +65,6 @@ export class RegisterPageComponent implements OnInit{
 
     const nuevoUsuario = this.registerForm.value as Usuario;
 
-    // Verificar si ya existe un usuario con el mismo nombre de usuario
     const usuarioExistente = this.usuariosInfo.find(usuario => usuario.usuario === nuevoUsuario.usuario);
 
     if (usuarioExistente) {
@@ -90,8 +89,6 @@ export class RegisterPageComponent implements OnInit{
   generateUsuarioId(): string {
     const userIds: string[] = [];
     let idFinal: string;
-
-    // Filtrar los IDs que comienzan con 'P' y tienen 4 caracteres en total
     this.usuariosInfo.forEach(usuario => {
         if (usuario.id.startsWith("P") && usuario.id.length === 4) {
             userIds.push(usuario.id);
@@ -100,7 +97,6 @@ export class RegisterPageComponent implements OnInit{
 
     console.log("IDs que empiezan por P y tienen 4 caracteres:", userIds);
 
-    // Determinar el siguiente número para el nuevo ID
     let numeroSiguiente: number;
     if (userIds.length > 0) {
         const ultimoId = userIds[userIds.length - 1];
@@ -110,7 +106,6 @@ export class RegisterPageComponent implements OnInit{
         numeroSiguiente = 1;
     }
 
-    // Formatear el número siguiente y concatenarlo con 'P' para obtener el nuevo ID
     idFinal = "P" + numeroSiguiente.toString().padStart(3, '0');
 
     return idFinal;

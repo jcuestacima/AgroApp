@@ -43,14 +43,11 @@ export class CarritoCardComponent implements OnInit{
       () => {
         window.location.reload();
 
-
-        // Aquí podrías realizar cualquier acción adicional después de borrar el producto, como actualizar la lista de productos, mostrar un mensaje de éxito, etc.
-
       },
       (error) => {
         console.error('Error al borrar el producto:', error);
         alert('Error al borrar el producto.');
-        // Manejar cualquier error que ocurra durante la solicitud HTTP
+
       }
     );
 
@@ -59,7 +56,7 @@ export class CarritoCardComponent implements OnInit{
 
   calcularTotalProducto(): string {
     this.total = (this.productoCarrito.pesoAproximadoUnidad / 1000) * this.productoCarrito.precio * this.productoCarrito.cantidad;
-    // Formatear el número para que solo tenga dos decimales y cambiar el punto por una coma
+
     const totalFormateado = this.total.toFixed(2).replace('.', ',');
     return totalFormateado;
 }
@@ -67,12 +64,4 @@ export class CarritoCardComponent implements OnInit{
   showSnackBar(message: string): void{
     this.snackBar.open(message, 'Cerrar', {duration: 3000})
   }
-
-
-
-
-  // actualizarProducto(){
-  //   this.router.navigate([`/productos/nuevoProducto`]);
-  // }
-
 }

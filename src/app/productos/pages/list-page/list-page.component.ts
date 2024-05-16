@@ -28,22 +28,6 @@ export class ListPageComponent implements OnInit{
   }
 
 
-  searchProducto(){
-    const value: string = this.searchInput.value || "";
 
-    this.productosService.getSuggestions(value).subscribe(productos=> this.productosSearch=productos);
-  }
-
-  onSelectedOption( event: MatAutocompleteSelectedEvent):void{
-    if (!event.option.value) {
-        this.selectedProducto = undefined;
-        return;
-    }
-
-    const producto: Producto = event.option.value;
-    this.searchInput.setValue(producto.nombre);
-
-    this.selectedProducto = producto;
-  }
 
 }
